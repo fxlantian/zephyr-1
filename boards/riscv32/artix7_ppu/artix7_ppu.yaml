@@ -1,0 +1,7 @@
+identifier: artix7_ppu
+name: Artix7 Board PPU
+type: mcu
+arch: riscv32
+toolchain:
+  - zephyr
+ram: 8192

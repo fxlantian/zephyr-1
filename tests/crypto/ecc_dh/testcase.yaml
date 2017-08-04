@@ -1,0 +1,5 @@
+tests:
+-   test:
+        slow: true
+        tags: crypto ecc dh
+        timeout: 500

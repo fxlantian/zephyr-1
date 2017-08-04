@@ -1,0 +1,6 @@
+if BOARD_ARTIX7_PPU
+
+config BOARD
+	default "artix7_ppu"
+
+endif

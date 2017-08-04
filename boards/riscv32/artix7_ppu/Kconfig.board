@@ -1,0 +1,4 @@
+
+config BOARD_ARTIX7_PPU
+	bool "Xilinx Artix7 Board PPU target"
+	depends on SOC_RISCV32_PPU

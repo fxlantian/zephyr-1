@@ -1,0 +1,626 @@
+./ext/hal/qmsi/drivers/mailbox/qm_mailbox_se.c:136:	device->dest = config->dest;
+./ext/hal/qmsi/drivers/mailbox/qm_mailbox_se.c:145:			device->callback = config->callback;
+./ext/hal/qmsi/drivers/mailbox/qm_mailbox_se.c:147:			device->callback_data = config->callback_data;
+./ext/hal/qmsi/drivers/mailbox/qm_mailbox_se.c:150:			device->mode = QM_MBOX_INTERRUPT_MODE;
+./ext/hal/qmsi/drivers/mailbox/qm_mailbox_se.c:164:			device->mode = QM_MBOX_POLLING_MODE;
+./ext/hal/qmsi/drivers/mailbox/qm_mailbox_se.c:173:			device->callback = NULL;
+./ext/hal/qmsi/drivers/mailbox/qm_mailbox_se.c:174:			device->callback_data = 0;
+./ext/hal/qmsi/drivers/mailbox/qm_mailbox_se.c:185:		device->dest = QM_MBOX_UNUSED;
+./ext/hal/qmsi/drivers/mailbox/qm_mailbox_se.c:186:		device->mode = QM_MBOX_INTERRUPT_MODE;
+./ext/hal/qmsi/drivers/mailbox/qm_mailbox_se.c:187:		device->callback = NULL;
+./ext/hal/qmsi/drivers/mailbox/qm_mailbox_se.c:188:		device->callback_data = 0;
+./ext/hal/nordic/mdk/nrf52840_bitfields.h:14093:#define USBD_BMREQUESTTYPE_DIRECTION_DeviceToHost (1UL) /*!< Device-to-host */
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:472:            USBx_DEVICE->DIEPEMPMSK &= ~fifoemptymsk;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:523:      USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_RWUSIG;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:541:      if((USBx_DEVICE->DSTS & USB_OTG_DSTS_SUSPSTS) == USB_OTG_DSTS_SUSPSTS)
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:568:      USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_RWUSIG; 
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:576:      USBx_DEVICE->DAINT = 0xFFFFFFFF;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:577:      USBx_DEVICE->DAINTMSK |= 0x10001;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:581:        USBx_DEVICE->DOUTEP1MSK |= (USB_OTG_DOEPMSK_STUPM | USB_OTG_DOEPMSK_XFRCM | USB_OTG_DOEPMSK_EPDM); 
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:582:        USBx_DEVICE->DINEP1MSK |= (USB_OTG_DIEPMSK_TOM | USB_OTG_DIEPMSK_XFRCM | USB_OTG_DIEPMSK_EPDM);  
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:587:        USBx_DEVICE->DOEPMSK |= (USB_OTG_DOEPMSK_STUPM | USB_OTG_DOEPMSK_XFRCM | USB_OTG_DOEPMSK_EPDM | USB_OTG_DOEPMSK_OTEPSPRM);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:589:        USBx_DEVICE->DOEPMSK |= (USB_OTG_DOEPMSK_STUPM | USB_OTG_DOEPMSK_XFRCM | USB_OTG_DOEPMSK_EPDM);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:591:        USBx_DEVICE->DIEPMSK |= (USB_OTG_DIEPMSK_TOM | USB_OTG_DIEPMSK_XFRCM | USB_OTG_DIEPMSK_EPDM);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:595:      USBx_DEVICE->DCFG &= ~USB_OTG_DCFG_DAD;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd.c:1441:    USBx_DEVICE->DIEPEMPMSK &= ~fifoemptymsk;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:245:    MODIFY_REG(Device->BTCR[Init->NSBank], BCR_CLEAR_MASK, (uint32_t)(FMC_NORSRAM_FLASH_ACCESS_ENABLE
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:267:    MODIFY_REG(Device->BTCR[Init->NSBank], BCR_CLEAR_MASK, (uint32_t)(FMC_NORSRAM_FLASH_ACCESS_DISABLE
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:291:    MODIFY_REG(Device->BTCR[FMC_NORSRAM_BANK1], FMC_BCR1_CCLKEN, Init->ContinuousClock);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:298:    SET_BIT(Device->BTCR[FMC_NORSRAM_BANK1], (uint32_t)(Init->WriteFifo));
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:327:    Device->BTCR[Bank] = 0x000030DB;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:332:    Device->BTCR[Bank] = 0x000030D2;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:335:  Device->BTCR[Bank + 1] = 0x0FFFFFFF;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:336:  ExDevice->BWTR[Bank]   = 0x0FFFFFFF;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:366:  MODIFY_REG(Device->BTCR[Bank + 1],                                                    \
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:377:  if (HAL_IS_BIT_SET(Device->BTCR[FMC_NORSRAM_BANK1], FMC_BCR1_CCLKEN))
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:379:    tmpr = (uint32_t)(Device->BTCR[FMC_NORSRAM_BANK1 + 1] & ~(((uint32_t)0x0F) << POSITION_VAL(FMC_BTRx_CLKDIV)));
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:381:    MODIFY_REG(Device->BTCR[FMC_NORSRAM_BANK1 + 1], FMC_BTRx_CLKDIV, tmpr);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:417:    MODIFY_REG(Device->BWTR[Bank],                                                  \
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:427:    Device->BWTR[Bank] = 0x0FFFFFFF;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:467:  SET_BIT(Device->BTCR[Bank], FMC_WRITE_OPERATION_ENABLE);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:485:  CLEAR_BIT(Device->BTCR[Bank], FMC_WRITE_OPERATION_ENABLE);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:559:    MODIFY_REG(Device->PCR, PCR_CLEAR_MASK, (Init->Waitfeature                                      |
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:590:    MODIFY_REG(Device->PMEM, PMEM_CLEAR_MASK, (Timing->SetupTime                                           |
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:617:    MODIFY_REG(Device->PATT, PATT_CLEAR_MASK, (Timing->SetupTime                                           |
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:643:    WRITE_REG(Device->PCR,  0x00000018);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:644:    WRITE_REG(Device->SR,   0x00000040);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:645:    WRITE_REG(Device->PMEM, 0xFCFCFCFC);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:646:    WRITE_REG(Device->PATT, 0xFCFCFCFC);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:685:    SET_BIT(Device->PCR, FMC_PCR_ECCEN);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:704:    CLEAR_BIT(Device->PCR, FMC_PCR_ECCEN);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_fmc.c:742:    *ECCval = (uint32_t)Device->ECCR;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_hal_pcd_ex.c:185:  if (USBx_DEVICE->DCTL & USB_OTG_DCTL_SDIS)
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:221:  USBx_DEVICE->DCFG |= DCFG_FRAME_INTERVAL_80;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:231:  USBx_DEVICE->DIEPMSK = 0;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:232:  USBx_DEVICE->DOEPMSK = 0;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:233:  USBx_DEVICE->DAINT = 0xFFFFFFFF;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:234:  USBx_DEVICE->DAINTMSK = 0;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:266:  USBx_DEVICE->DIEPMSK &= ~(USB_OTG_DIEPMSK_TXFURM);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:271:    USBx_DEVICE->DTHRCTL = (USB_OTG_DTHRCTL_TXTHRLEN_6 | USB_OTG_DTHRCTL_RXTHRLEN_6);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:272:    USBx_DEVICE->DTHRCTL |= (USB_OTG_DTHRCTL_RXTHREN | USB_OTG_DTHRCTL_ISOTHREN | USB_OTG_DTHRCTL_NONISOTHREN);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:274:    index= USBx_DEVICE->DTHRCTL;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:373:  USBx_DEVICE->DCFG |= speed;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:390:  if((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_HS_PHY_30MHZ_OR_60MHZ)
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:394:  else if (((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_FS_PHY_30MHZ_OR_60MHZ)||
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:395:           ((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_FS_PHY_48MHZ))
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:399:  else if((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_LS_PHY_6MHZ)
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:417:   USBx_DEVICE->DAINTMSK |= USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num)));
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:428:     USBx_DEVICE->DAINTMSK |= USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:461:   USBx_DEVICE->DEACHMSK |= USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num)));
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:476:     USBx_DEVICE->DEACHMSK |= USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:492:   USBx_DEVICE->DEACHMSK &= ~(USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num))));
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:493:   USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num))));   
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:498:     USBx_DEVICE->DEACHMSK &= ~(USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16));
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:499:     USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16));     
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:517:   USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num))));
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:522:     USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16));
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:574:          USBx_DEVICE->DIEPEMPMSK |= 1 << ep->num;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:580:      if ((USBx_DEVICE->DSTS & ( 1 << 8 )) == 0)
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:621:      if ((USBx_DEVICE->DSTS & ( 1 << 8 )) == 0)
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:684:      USBx_DEVICE->DIEPEMPMSK |= 1 << (ep->num);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:837:  USBx_DEVICE->DAINT = 0xFFFFFFFF;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:840:  USBx_DEVICE->DIEPMSK  = 0;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:841:  USBx_DEVICE->DOEPMSK  = 0;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:842:  USBx_DEVICE->DAINTMSK = 0;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:860:  USBx_DEVICE->DCFG &= ~ (USB_OTG_DCFG_DAD);
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:861:  USBx_DEVICE->DCFG |= (address << 4) & USB_OTG_DCFG_DAD ;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:873:  USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_SDIS ; 
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:886:  USBx_DEVICE->DCTL |= USB_OTG_DCTL_SDIS ; 
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:914:  tmpreg  = USBx_DEVICE->DAINT;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:915:  tmpreg &= USBx_DEVICE->DAINTMSK;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:927:  tmpreg  = USBx_DEVICE->DAINT;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:928:  tmpreg &= USBx_DEVICE->DAINTMSK;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:943:  tmpreg &= USBx_DEVICE->DOEPMSK;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:958:  msk = USBx_DEVICE->DIEPMSK;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:959:  emp = USBx_DEVICE->DIEPEMPMSK;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:1000:  if((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_LS_PHY_6MHZ)
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:1004:  USBx_DEVICE->DCTL |= USB_OTG_DCTL_CGINAK;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:1573:  if((USBx_DEVICE->DSTS & USB_OTG_DSTS_SUSPSTS) == USB_OTG_DSTS_SUSPSTS)
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:1576:    USBx_DEVICE->DCTL |= USB_OTG_DCTL_RWUSIG;
+./ext/hal/st/stm32cube/stm32l4xx/drivers/src/stm32l4xx_ll_usb.c:1589:   USBx_DEVICE->DCTL &= ~(USB_OTG_DCTL_RWUSIG);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:236:    MODIFY_REG(Device->BTCR[Init->NSBank], BCR_CLEAR_MASK, (uint32_t)(FMC_NORSRAM_FLASH_ACCESS_ENABLE
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:255:    MODIFY_REG(Device->BTCR[Init->NSBank], BCR_CLEAR_MASK, (uint32_t)(FMC_NORSRAM_FLASH_ACCESS_DISABLE
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:276:    MODIFY_REG(Device->BTCR[FMC_NORSRAM_BANK1], FMC_BCR1_CCLKEN, Init->ContinuousClock);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:304:    Device->BTCR[Bank] = 0x000030DB;
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:309:    Device->BTCR[Bank] = 0x000030D2;
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:312:  Device->BTCR[Bank + 1] = 0x0FFFFFFF;
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:313:  ExDevice->BWTR[Bank]   = 0x0FFFFFFF;
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:343:  MODIFY_REG(Device->BTCR[Bank + 1],                                                    \
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:354:  if (HAL_IS_BIT_SET(Device->BTCR[FMC_NORSRAM_BANK1], FMC_BCR1_CCLKEN))
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:356:    tmpr = (uint32_t)(Device->BTCR[FMC_NORSRAM_BANK1 + 1] & ~(((uint32_t)0x0F) << POSITION_VAL(FMC_BTRx_CLKDIV)));
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:358:    MODIFY_REG(Device->BTCR[FMC_NORSRAM_BANK1 + 1], FMC_BTRx_CLKDIV, tmpr);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:393:    MODIFY_REG(Device->BWTR[Bank],                                                  \
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:402:    Device->BWTR[Bank] = 0x0FFFFFFF;
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:442:  SET_BIT(Device->BTCR[Bank], FMC_WRITE_OPERATION_ENABLE);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:460:  CLEAR_BIT(Device->BTCR[Bank], FMC_WRITE_OPERATION_ENABLE);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:537:    MODIFY_REG(Device->PCR2, PCR_CLEAR_MASK, (Init->Waitfeature                                                       |
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:548:    MODIFY_REG(Device->PCR3, PCR_CLEAR_MASK, (Init->Waitfeature                                                       |
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:583:    MODIFY_REG(Device->PMEM2, PMEM_CLEAR_MASK, (Timing->SetupTime                      | \
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:591:    MODIFY_REG(Device->PMEM3, PMEM_CLEAR_MASK, (Timing->SetupTime                      | \
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:622:    MODIFY_REG(Device->PATT2, PATT_CLEAR_MASK, (Timing->SetupTime                       | \
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:630:    MODIFY_REG(Device->PATT3, PATT_CLEAR_MASK, (Timing->SetupTime                       | \
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:659:    WRITE_REG(Device->PCR2,  0x00000018);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:660:    WRITE_REG(Device->SR2,   0x00000040);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:661:    WRITE_REG(Device->PMEM2, 0xFCFCFCFC);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:662:    WRITE_REG(Device->PATT2, 0xFCFCFCFC);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:668:    WRITE_REG(Device->PCR3,  0x00000018);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:669:    WRITE_REG(Device->SR3,   0x00000040);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:670:    WRITE_REG(Device->PMEM3, 0xFCFCFCFC);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:671:    WRITE_REG(Device->PATT3, 0xFCFCFCFC);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:713:    SET_BIT(Device->PCR2, FMC_PCRx_ECCEN);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:717:    SET_BIT(Device->PCR3, FMC_PCRx_ECCEN);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:739:    CLEAR_BIT(Device->PCR2, FMC_PCRx_ECCEN);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:743:    CLEAR_BIT(Device->PCR3, FMC_PCRx_ECCEN);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:784:    *ECCval = (uint32_t)Device->ECCR2;
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:789:    *ECCval = (uint32_t)Device->ECCR3;
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:861:  MODIFY_REG(Device->PCR4,
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:891:  MODIFY_REG(Device->PMEM4, PMEM_CLEAR_MASK,
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:917:  MODIFY_REG(Device->PATT4, PATT_CLEAR_MASK,                          \
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:943:  MODIFY_REG(Device->PIO4, PIO4_CLEAR_MASK,                         \
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:966:  WRITE_REG(Device->PCR4,  0x00000018);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:967:  WRITE_REG(Device->SR4,   0x00000040);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:968:  WRITE_REG(Device->PMEM4, 0xFCFCFCFC);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:969:  WRITE_REG(Device->PATT4, 0xFCFCFCFC);
+./ext/hal/st/stm32cube/stm32f3xx/drivers/src/stm32f3xx_ll_fmc.c:970:  WRITE_REG(Device->PIO4,  0xFCFCFCFC);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:174:    MODIFY_REG(Device->BTCR[Init->NSBank], BCR_CLEAR_MASK, (uint32_t)(FSMC_NORSRAM_FLASH_ACCESS_ENABLE
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:192:    MODIFY_REG(Device->BTCR[Init->NSBank], BCR_CLEAR_MASK, (uint32_t)(FSMC_NORSRAM_FLASH_ACCESS_DISABLE
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:233:    Device->BTCR[Bank] = 0x000030DBU;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:238:    Device->BTCR[Bank] = 0x000030D2U; 
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:241:  Device->BTCR[Bank + 1U] = 0x0FFFFFFFU;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:242:  ExDevice->BWTR[Bank]    = 0x0FFFFFFFU;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:270:  MODIFY_REG(Device->BTCR[Bank + 1U],                                                        \
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:319:    MODIFY_REG(Device->BWTR[Bank],                                                      \
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:327:    MODIFY_REG(Device->BWTR[Bank],                                                      \
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:339:    Device->BWTR[Bank] = 0x0FFFFFFFU;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:376:  SET_BIT(Device->BTCR[Bank], FSMC_WRITE_OPERATION_ENABLE);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:394:  CLEAR_BIT(Device->BTCR[Bank], FSMC_WRITE_OPERATION_ENABLE);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:472:    MODIFY_REG(Device->PCR2, PCR_CLEAR_MASK, (Init->Waitfeature                             |
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:483:    MODIFY_REG(Device->PCR3, PCR_CLEAR_MASK, (Init->Waitfeature                             |
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:517:    MODIFY_REG(Device->PMEM2, PMEM_CLEAR_MASK, (Timing->SetupTime                                         | \
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:525:    MODIFY_REG(Device->PMEM3, PMEM_CLEAR_MASK, (Timing->SetupTime                                         | \
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:556:    MODIFY_REG(Device->PATT2, PATT_CLEAR_MASK, (Timing->SetupTime                                         | \
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:564:    MODIFY_REG(Device->PATT3, PATT_CLEAR_MASK, (Timing->SetupTime                                         | \
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:593:    WRITE_REG(Device->PCR2,  0x00000018U);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:594:    WRITE_REG(Device->SR2,   0x00000040U);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:595:    WRITE_REG(Device->PMEM2, 0xFCFCFCFCU);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:596:    WRITE_REG(Device->PATT2, 0xFCFCFCFCU);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:602:    WRITE_REG(Device->PCR3,  0x00000018U);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:603:    WRITE_REG(Device->SR3,   0x00000040U);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:604:    WRITE_REG(Device->PMEM3, 0xFCFCFCFCU);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:605:    WRITE_REG(Device->PATT3, 0xFCFCFCFCU);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:646:    SET_BIT(Device->PCR2, FSMC_PCRx_ECCEN);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:650:    SET_BIT(Device->PCR3, FSMC_PCRx_ECCEN);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:671:    CLEAR_BIT(Device->PCR2, FSMC_PCRx_ECCEN);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:675:    CLEAR_BIT(Device->PCR3, FSMC_PCRx_ECCEN);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:716:    *ECCval = (uint32_t)Device->ECCR2;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:721:    *ECCval = (uint32_t)Device->ECCR3;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:792:  MODIFY_REG(Device->PCR4,
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:822:  MODIFY_REG(Device->PMEM4, PMEM_CLEAR_MASK,
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:848:  MODIFY_REG(Device->PATT4, PATT_CLEAR_MASK,                          \
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:874:  MODIFY_REG(Device->PIO4, PIO4_CLEAR_MASK,                        \
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:897:  WRITE_REG(Device->PCR4,  0x00000018U);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:898:  WRITE_REG(Device->SR4,   0x00000040U);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:899:  WRITE_REG(Device->PMEM4, 0xFCFCFCFCU);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:900:  WRITE_REG(Device->PATT4, 0xFCFCFCFCU);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_fsmc.c:901:  WRITE_REG(Device->PIO4,  0xFCFCFCFCU);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:216:  USBx_DEVICE->DCFG |= DCFG_FRAME_INTERVAL_80;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:226:  USBx_DEVICE->DIEPMSK = 0;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:227:  USBx_DEVICE->DOEPMSK = 0;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:228:  USBx_DEVICE->DAINT = 0xFFFFFFFF;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:229:  USBx_DEVICE->DAINTMSK = 0;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:261:  USBx_DEVICE->DIEPMSK &= ~(USB_OTG_DIEPMSK_TXFURM);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:355:  USBx_DEVICE->DCFG |= speed;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:373:  if (((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_FS_PHY_30MHZ_OR_60MHZ)||
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:374:      ((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_FS_PHY_48MHZ))
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:378:  else if((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_LS_PHY_6MHZ)
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:410:   USBx_DEVICE->DAINTMSK |= USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num)));
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:420:     USBx_DEVICE->DAINTMSK |= USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:446:    USBx_DEVICE->DEACHMSK &= ~(USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num))));
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:447:    USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num))));
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:452:    USBx_DEVICE->DEACHMSK &= ~(USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16));
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:453:    USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16));
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:505:        USBx_DEVICE->DIEPEMPMSK |= 1 << ep->num;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:511:      if ((USBx_DEVICE->DSTS & ( 1 << 8 )) == 0)
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:552:      if ((USBx_DEVICE->DSTS & ( 1 << 8 )) == 0)
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:610:      USBx_DEVICE->DIEPEMPMSK |= 1 << (ep->num);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:761:  USBx_DEVICE->DAINT = 0xFFFFFFFF;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:764:  USBx_DEVICE->DIEPMSK  = 0;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:765:  USBx_DEVICE->DOEPMSK  = 0;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:766:  USBx_DEVICE->DAINTMSK = 0;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:787:  USBx_DEVICE->DCFG &= ~ (USB_OTG_DCFG_DAD);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:788:  USBx_DEVICE->DCFG |= (address << 4) & USB_OTG_DCFG_DAD;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:803:  USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_SDIS ;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:819:  USBx_DEVICE->DCTL |= USB_OTG_DCTL_SDIS;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:850:  tmpreg  = USBx_DEVICE->DAINT;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:851:  tmpreg &= USBx_DEVICE->DAINTMSK;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:866:  tmpreg  = USBx_DEVICE->DAINT;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:867:  tmpreg &= USBx_DEVICE->DAINTMSK;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:885:  tmpreg &= USBx_DEVICE->DOEPMSK;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:902:  msk = USBx_DEVICE->DIEPMSK;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:903:  emp = USBx_DEVICE->DIEPEMPMSK;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:948:  if((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_LS_PHY_6MHZ)
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:952:  USBx_DEVICE->DCTL |= USB_OTG_DCTL_CGINAK;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:1524:  if((USBx_DEVICE->DSTS & USB_OTG_DSTS_SUSPSTS) == USB_OTG_DSTS_SUSPSTS)
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:1527:    USBx_DEVICE->DCTL |= USB_OTG_DCTL_RWUSIG;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_ll_usb.c:1542:   USBx_DEVICE->DCTL &= ~(USB_OTG_DCTL_RWUSIG);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_hal_pcd.c:403:            USBx_DEVICE->DIEPEMPMSK &= ~fifoemptymsk;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_hal_pcd.c:439:      USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_RWUSIG;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_hal_pcd.c:449:      if((USBx_DEVICE->DSTS & USB_OTG_DSTS_SUSPSTS) == USB_OTG_DSTS_SUSPSTS)
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_hal_pcd.c:460:      USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_RWUSIG; 
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_hal_pcd.c:468:      USBx_DEVICE->DAINT = 0xFFFFFFFFU;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_hal_pcd.c:469:      USBx_DEVICE->DAINTMSK |= 0x10001U;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_hal_pcd.c:471:      USBx_DEVICE->DOEPMSK |= (USB_OTG_DOEPMSK_STUPM | USB_OTG_DOEPMSK_XFRCM | USB_OTG_DOEPMSK_EPDM);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_hal_pcd.c:472:      USBx_DEVICE->DIEPMSK |= (USB_OTG_DIEPMSK_TOM | USB_OTG_DIEPMSK_XFRCM | USB_OTG_DIEPMSK_EPDM);
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_hal_pcd.c:475:      USBx_DEVICE->DCFG &= ~USB_OTG_DCFG_DAD;
+./ext/hal/st/stm32cube/stm32f1xx/drivers/src/stm32f1xx_hal_pcd.c:1191:    USBx_DEVICE->DIEPEMPMSK &= ~fifoemptymsk;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:179:  tmpr = Device->BTCR[Init->NSBank];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:238:  Device->BTCR[Init->NSBank] = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:243:    Device->BTCR[FMC_NORSRAM_BANK1] |= (uint32_t)(Init->ContinuousClock);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:249:    Device->BTCR[FMC_NORSRAM_BANK1] |= (uint32_t)(Init->WriteFifo);              
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:277:    Device->BTCR[Bank] = 0x000030DBU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:282:    Device->BTCR[Bank] = 0x000030D2U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:285:  Device->BTCR[Bank + 1U] = 0x0FFFFFFFU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:286:  ExDevice->BWTR[Bank]    = 0x0FFFFFFFU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:315:  tmpr = Device->BTCR[Bank + 1U];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:331:  Device->BTCR[Bank + 1U] = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:334:  if(HAL_IS_BIT_SET(Device->BTCR[FMC_NORSRAM_BANK1], FMC_BCR1_CCLKEN))
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:336:    tmpr = (uint32_t)(Device->BTCR[FMC_NORSRAM_BANK1 + 1U] & ~(0x0FU << 20U)); 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:338:    Device->BTCR[FMC_NORSRAM_BANK1 + 1U] = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:372:    tmpr = Device->BWTR[Bank];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:384:    Device->BWTR[Bank] = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:388:    Device->BWTR[Bank] = 0x0FFFFFFFU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:424:  Device->BTCR[Bank] |= FMC_WRITE_OPERATION_ENABLE; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:442:  Device->BTCR[Bank] &= ~FMC_WRITE_OPERATION_ENABLE; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:520:  tmpr = Device->PCR;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:537:  Device->PCR  = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:563:  tmpr = Device->PMEM;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:578:  Device->PMEM = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:604:  tmpr = Device->PATT;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:617:  Device->PATT = tmpr; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:640:  Device->PCR  = 0x00000018U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:641:  Device->SR   = 0x00000040U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:642:  Device->PMEM = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:643:  Device->PATT = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:682:  Device->PCR |= FMC_PCR_ECCEN;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:701:  Device->PCR &= ~FMC_PCR_ECCEN;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:739:  *ECCval = (uint32_t)Device->ECCR;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:789:    tmpr = Device->PCR2;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:794:    tmpr = Device->PCR3;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:814:    Device->PCR2  = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:819:    Device->PCR3  = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:849:    tmpr = Device->PMEM2;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:854:    tmpr = Device->PMEM3;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:871:    Device->PMEM2 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:876:    Device->PMEM3 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:905:    tmpr = Device->PATT2;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:910:    tmpr = Device->PATT3;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:926:    Device->PATT2 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:931:    Device->PATT3 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:956:    Device->PCR2  = 0x00000018U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:957:    Device->SR2   = 0x00000040U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:958:    Device->PMEM2 = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:959:    Device->PATT2 = 0xFCFCFCFCU;  
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:965:    Device->PCR3  = 0x00000018U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:966:    Device->SR3   = 0x00000040U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:967:    Device->PMEM3 = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:968:    Device->PATT3 = 0xFCFCFCFCU; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1007:    Device->PCR2 |= FMC_PCR2_ECCEN;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1011:    Device->PCR3 |= FMC_PCR3_ECCEN;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1032:    Device->PCR2 &= ~FMC_PCR2_ECCEN;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1036:    Device->PCR3 &= ~FMC_PCR3_ECCEN;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1077:    *ECCval = (uint32_t)Device->ECCR2;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1082:    *ECCval = (uint32_t)Device->ECCR3;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1156:  tmpr = Device->PCR4;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1168:  Device->PCR4 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1192:  tmpr = Device->PMEM4;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1203:  Device->PMEM4 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1227:  tmpr = Device->PATT4;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1238:  Device->PATT4 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1262:  tmpr = Device->PIO4;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1274:  Device->PIO4 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1293:  Device->PCR4    = 0x00000018U; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1294:  Device->SR4     = 0x00000000U;	
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1295:  Device->PMEM4   = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1296:  Device->PATT4   = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1297:  Device->PIO4    = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1375:    tmpr1 = Device->SDCR[FMC_SDRAM_BANK1];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1393:    Device->SDCR[FMC_SDRAM_BANK1] = tmpr1;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1397:    tmpr1 = Device->SDCR[FMC_SDRAM_BANK1];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1406:    tmpr2 = Device->SDCR[FMC_SDRAM_BANK2];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1420:    Device->SDCR[FMC_SDRAM_BANK1] = tmpr1;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1421:    Device->SDCR[FMC_SDRAM_BANK2] = tmpr2;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1454:    tmpr1 = Device->SDTR[FMC_SDRAM_BANK1];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1468:    Device->SDTR[FMC_SDRAM_BANK1] = tmpr1;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1472:    tmpr1 = Device->SDTR[FMC_SDRAM_BANK1];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1480:    tmpr2 = Device->SDTR[FMC_SDRAM_BANK2];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1493:    Device->SDTR[FMC_SDRAM_BANK1] = tmpr1;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1494:    Device->SDTR[FMC_SDRAM_BANK2] = tmpr2;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1511:  Device->SDCR[Bank] = 0x000002D0U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1512:  Device->SDTR[Bank] = 0x0FFFFFFFU;    
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1513:  Device->SDCMR      = 0x00000000U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1514:  Device->SDRTR      = 0x00000000U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1515:  Device->SDSR       = 0x00000000U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1551:  Device->SDCR[Bank] |= FMC_SDRAM_WRITE_PROTECTION_ENABLE;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1568:  Device->SDCR[Bank] &= ~FMC_SDRAM_WRITE_PROTECTION_ENABLE;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1600:  Device->SDCMR = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1606:  while(HAL_IS_BIT_SET(Device->SDSR, FMC_SDSR_BUSY))
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1634:  Device->SDRTR |= (RefreshRate<<1U);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1652:  Device->SDCMR |= (AutoRefreshNumber << 5U); 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1677:    tmpreg = (uint32_t)(Device->SDSR & FMC_SDSR_MODES1); 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fmc.c:1681:    tmpreg = ((uint32_t)(Device->SDSR & FMC_SDSR_MODES2) >> 2U);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:424:            USBx_DEVICE->DIEPEMPMSK &= ~fifoemptymsk;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:475:      USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_RWUSIG;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:495:      if((USBx_DEVICE->DSTS & USB_OTG_DSTS_SUSPSTS) == USB_OTG_DSTS_SUSPSTS)
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:524:      USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_RWUSIG; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:532:      USBx_DEVICE->DAINT = 0xFFFFFFFFU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:533:      USBx_DEVICE->DAINTMSK |= 0x10001U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:537:        USBx_DEVICE->DOUTEP1MSK |= (USB_OTG_DOEPMSK_STUPM | USB_OTG_DOEPMSK_XFRCM | USB_OTG_DOEPMSK_EPDM); 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:538:        USBx_DEVICE->DINEP1MSK |= (USB_OTG_DIEPMSK_TOM | USB_OTG_DIEPMSK_XFRCM | USB_OTG_DIEPMSK_EPDM);  
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:543:        USBx_DEVICE->DOEPMSK |= (USB_OTG_DOEPMSK_STUPM | USB_OTG_DOEPMSK_XFRCM | USB_OTG_DOEPMSK_EPDM | USB_OTG_DOEPMSK_OTEPSPRM);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:545:        USBx_DEVICE->DOEPMSK |= (USB_OTG_DOEPMSK_STUPM | USB_OTG_DOEPMSK_XFRCM | USB_OTG_DOEPMSK_EPDM);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:547:        USBx_DEVICE->DIEPMSK |= (USB_OTG_DIEPMSK_TOM | USB_OTG_DIEPMSK_XFRCM | USB_OTG_DIEPMSK_EPDM);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:551:      USBx_DEVICE->DCFG &= ~USB_OTG_DCFG_DAD;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:1194:  if((USBx_DEVICE->DSTS & USB_OTG_DSTS_SUSPSTS) == USB_OTG_DSTS_SUSPSTS)
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:1197:    USBx_DEVICE->DCTL |= USB_OTG_DCTL_RWUSIG;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:1212:  USBx_DEVICE->DCTL &= ~(USB_OTG_DCTL_RWUSIG);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd.c:1303:    USBx_DEVICE->DIEPEMPMSK &= ~fifoemptymsk;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:175:  tmpr = Device->BTCR[Init->NSBank];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:231:  Device->BTCR[Init->NSBank] = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:237:    Device->BTCR[FSMC_NORSRAM_BANK1] |= (uint32_t)(Init->ContinuousClock);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:242:    Device->BTCR[FSMC_NORSRAM_BANK1] |= (uint32_t)(Init->WriteFifo);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:270:    Device->BTCR[Bank] = 0x000030DBU;    
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:275:    Device->BTCR[Bank] = 0x000030D2U; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:278:  Device->BTCR[Bank + 1U] = 0x0FFFFFFFU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:279:  ExDevice->BWTR[Bank]    = 0x0FFFFFFFU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:309:  tmpr = Device->BTCR[Bank + 1U];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:325:  Device->BTCR[Bank + 1] = tmpr; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:329:  if(HAL_IS_BIT_SET(Device->BTCR[FSMC_NORSRAM_BANK1], FSMC_BCR1_CCLKEN))
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:331:    tmpr = (uint32_t)(Device->BTCR[FSMC_NORSRAM_BANK1 + 1U] & ~(0x0FU << 20U)); 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:333:    Device->BTCR[FSMC_NORSRAM_BANK1 + 1U] = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:368:    tmpr = Device->BWTR[Bank];
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:380:    Device->BWTR[Bank] = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:384:    Device->BWTR[Bank] = 0x0FFFFFFFU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:421:  Device->BTCR[Bank] |= FSMC_WRITE_OPERATION_ENABLE; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:439:  Device->BTCR[Bank] &= ~FSMC_WRITE_OPERATION_ENABLE; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:517:    tmpr = Device->PCR2;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:522:    tmpr = Device->PCR3;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:542:    Device->PCR2  = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:547:    Device->PCR3  = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:574:    tmpr = Device->PMEM2;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:579:    tmpr = Device->PMEM3;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:596:    Device->PMEM2 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:601:    Device->PMEM3 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:628:    tmpr = Device->PATT2;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:633:    tmpr = Device->PATT3;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:650:    Device->PATT2 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:655:    Device->PATT3 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:676:    Device->PCR2  = 0x00000018U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:677:    Device->SR2   = 0x00000040U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:678:    Device->PMEM2 = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:679:    Device->PATT2 = 0xFCFCFCFCU;  
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:685:    Device->PCR3  = 0x00000018U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:686:    Device->SR3   = 0x00000040U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:687:    Device->PMEM3 = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:688:    Device->PATT3 = 0xFCFCFCFCU; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:723:    Device->PCR2 |= FSMC_PCR2_ECCEN;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:727:    Device->PCR3 |= FSMC_PCR3_ECCEN;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:744:    Device->PCR2 &= ~FSMC_PCR2_ECCEN;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:748:    Device->PCR3 &= ~FSMC_PCR3_ECCEN;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:789:    *ECCval = (uint32_t)Device->ECCR2;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:794:    *ECCval = (uint32_t)Device->ECCR3;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:866:  tmpr = Device->PCR4;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:878:  Device->PCR4 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:901:  tmpr = Device->PMEM4;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:912:  Device->PMEM4 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:935:  tmpr = Device->PATT4;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:946:  Device->PATT4 = tmpr; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:969:  tmpr = Device->PIO4;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:981:  Device->PIO4 = tmpr;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:997:  Device->PCR4    = 0x00000018U; 
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:998:  Device->SR4     = 0x00000000U;	
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:999:  Device->PMEM4   = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:1000:  Device->PATT4   = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_fsmc.c:1001:  Device->PIO4    = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:239:  USBx_DEVICE->DCFG |= DCFG_FRAME_INTERVAL_80;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:265:  USBx_DEVICE->DIEPMSK = 0U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:266:  USBx_DEVICE->DOEPMSK = 0U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:267:  USBx_DEVICE->DAINT = 0xFFFFFFFFU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:268:  USBx_DEVICE->DAINTMSK = 0U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:300:  USBx_DEVICE->DIEPMSK &= ~(USB_OTG_DIEPMSK_TXFURM);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:305:    USBx_DEVICE->DTHRCTL = (USB_OTG_DTHRCTL_TXTHRLEN_6 | USB_OTG_DTHRCTL_RXTHRLEN_6);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:306:    USBx_DEVICE->DTHRCTL |= (USB_OTG_DTHRCTL_RXTHREN | USB_OTG_DTHRCTL_ISOTHREN | USB_OTG_DTHRCTL_NONISOTHREN);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:308:    i= USBx_DEVICE->DTHRCTL;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:407:  USBx_DEVICE->DCFG |= speed;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:424:  if((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_HS_PHY_30MHZ_OR_60MHZ)
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:428:  else if (((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_FS_PHY_30MHZ_OR_60MHZ)||
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:429:           ((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_FS_PHY_48MHZ))
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:433:  else if((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_LS_PHY_6MHZ)
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:451:   USBx_DEVICE->DAINTMSK |= USB_OTG_DAINTMSK_IEPM & ((1U << (ep->num)));
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:461:     USBx_DEVICE->DAINTMSK |= USB_OTG_DAINTMSK_OEPM & ((1U << (ep->num)) << 16U);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:494:   USBx_DEVICE->DEACHMSK |= USB_OTG_DAINTMSK_IEPM & ((1U << (ep->num)));
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:509:     USBx_DEVICE->DEACHMSK |= USB_OTG_DAINTMSK_OEPM & ((1U << (ep->num)) << 16U);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:551:    USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_IEPM & ((1U << (ep->num))));   
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:577:    USBx_DEVICE->DCTL |= USB_OTG_DCTL_CGONAK;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:580:    USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_OEPM & ((1U << (ep->num)) << 16U));         
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:622:    USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_IEPM & ((1U << (ep->num))));   
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:648:    USBx_DEVICE->DCTL |= USB_OTG_DCTL_CGONAK;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:651:    USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_OEPM & ((1U << (ep->num)) << 16U));         
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:711:          USBx_DEVICE->DIEPEMPMSK |= 1U << ep->num;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:718:      if ((USBx_DEVICE->DSTS & ( 1U << 8U )) == 0U)
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:764:      if ((USBx_DEVICE->DSTS & ( 1U << 8U )) == 0U)
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:832:        USBx_DEVICE->DIEPEMPMSK |= 1U << (ep->num);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:990:  USBx_DEVICE->DAINT = 0xFFFFFFFFU;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:993:  USBx_DEVICE->DIEPMSK  = 0U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:994:  USBx_DEVICE->DOEPMSK  = 0U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:995:  USBx_DEVICE->DAINTMSK = 0U;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1013:  USBx_DEVICE->DCFG &= ~ (USB_OTG_DCFG_DAD);
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1014:  USBx_DEVICE->DCFG |= (address << 4U) & USB_OTG_DCFG_DAD ;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1026:  USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_SDIS ;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1039:  USBx_DEVICE->DCTL |= USB_OTG_DCTL_SDIS ;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1067:  v  = USBx_DEVICE->DAINT;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1068:  v &= USBx_DEVICE->DAINTMSK;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1080:  v  = USBx_DEVICE->DAINT;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1081:  v &= USBx_DEVICE->DAINTMSK;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1096:  v &= USBx_DEVICE->DOEPMSK;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1111:  msk = USBx_DEVICE->DIEPMSK;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1112:  emp = USBx_DEVICE->DIEPEMPMSK;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1153:  if((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_LS_PHY_6MHZ)
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_ll_usb.c:1157:  USBx_DEVICE->DCTL |= USB_OTG_DCTL_CGINAK;
+./ext/hal/st/stm32cube/stm32f4xx/drivers/src/stm32f4xx_hal_pcd_ex.c:201:  if (USBx_DEVICE->DCTL & USB_OTG_DCTL_SDIS)
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd_ex.c:181:  if (USBx_DEVICE->DCTL & USB_OTG_DCTL_SDIS)
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:173:  tmpr = Device->BTCR[Init->NSBank];
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:204:  Device->BTCR[Init->NSBank] = tmpr;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:209:    Device->BTCR[FMC_NORSRAM_BANK1] |= (uint32_t)(Init->ContinuousClock);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:213:    Device->BTCR[FMC_NORSRAM_BANK1] |= (uint32_t)(Init->WriteFifo);              
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:241:    Device->BTCR[Bank] = 0x000030DB;    
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:246:    Device->BTCR[Bank] = 0x000030D2; 
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:249:  Device->BTCR[Bank + 1] = 0x0FFFFFFF;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:250:  ExDevice->BWTR[Bank]   = 0x0FFFFFFF;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:280:  tmpr = Device->BTCR[Bank + 1];
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:297:  Device->BTCR[Bank + 1] = tmpr;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:300:  if(HAL_IS_BIT_SET(Device->BTCR[FMC_NORSRAM_BANK1], FMC_BCR1_CCLKEN))
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:302:    tmpr = (uint32_t)(Device->BTCR[FMC_NORSRAM_BANK1 + 1] & ~(((uint32_t)0x0F) << 20)); 
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:304:    Device->BTCR[FMC_NORSRAM_BANK1 + 1] = tmpr;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:340:    tmpr = Device->BWTR[Bank];
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:352:    Device->BWTR[Bank] = tmpr;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:356:    Device->BWTR[Bank] = 0x0FFFFFFF;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:393:  Device->BTCR[Bank] |= FMC_WRITE_OPERATION_ENABLE; 
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:411:  Device->BTCR[Bank] &= ~FMC_WRITE_OPERATION_ENABLE; 
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:488:  tmpr = Device->PCR;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:504:    Device->PCR  = tmpr;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:531:  tmpr = Device->PMEM;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:544:    Device->PMEM = tmpr;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:570:  tmpr = Device->PATT;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:582:    Device->PATT = tmpr;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:603:    Device->PCR  = 0x00000018U;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:604:    Device->SR   = 0x00000040U;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:605:    Device->PMEM = 0xFCFCFCFCU;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:606:    Device->PATT = 0xFCFCFCFCU; 
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:644:    Device->PCR |= FMC_PCR_ECCEN;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:663:    Device->PCR &= ~FMC_PCR_ECCEN;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:701:  *ECCval = (uint32_t)Device->ECCR;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:781:    tmpr1 = Device->SDCR[FMC_SDRAM_BANK1];
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:798:    Device->SDCR[FMC_SDRAM_BANK1] = tmpr1;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:802:    tmpr1 = Device->SDCR[FMC_SDRAM_BANK1];
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:811:    tmpr2 = Device->SDCR[FMC_SDRAM_BANK2];
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:825:    Device->SDCR[FMC_SDRAM_BANK1] = tmpr1;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:826:    Device->SDCR[FMC_SDRAM_BANK2] = tmpr2;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:860:    tmpr1 = Device->SDTR[FMC_SDRAM_BANK1];
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:874:    Device->SDTR[FMC_SDRAM_BANK1] = tmpr1;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:878:    tmpr1 = Device->SDTR[FMC_SDRAM_BANK1];
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:886:    tmpr2 = Device->SDTR[FMC_SDRAM_BANK2];
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:899:    Device->SDTR[FMC_SDRAM_BANK1] = tmpr1;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:900:    Device->SDTR[FMC_SDRAM_BANK2] = tmpr2;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:918:  Device->SDCR[Bank] = 0x000002D0;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:919:  Device->SDTR[Bank] = 0x0FFFFFFF;    
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:920:  Device->SDCMR      = 0x00000000;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:921:  Device->SDRTR      = 0x00000000;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:922:  Device->SDSR       = 0x00000000;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:959:  Device->SDCR[Bank] |= FMC_SDRAM_WRITE_PROTECTION_ENABLE;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:976:  Device->SDCR[Bank] &= ~FMC_SDRAM_WRITE_PROTECTION_ENABLE;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:1008:  Device->SDCMR = tmpr;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:1014:  while(HAL_IS_BIT_SET(Device->SDSR, FMC_SDSR_BUSY))
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:1042:  Device->SDRTR |= (RefreshRate<<1);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:1060:  Device->SDCMR |= (AutoRefreshNumber << 5); 
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:1085:    tmpreg = (uint32_t)(Device->SDSR & FMC_SDSR_MODES1); 
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_fmc.c:1089:    tmpreg = ((uint32_t)(Device->SDSR & FMC_SDSR_MODES2) >> 2);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:253:  USBx_DEVICE->DCFG |= DCFG_FRAME_INTERVAL_80;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:294:  USBx_DEVICE->DIEPMSK = 0;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:295:  USBx_DEVICE->DOEPMSK = 0;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:296:  USBx_DEVICE->DAINT = 0xFFFFFFFF;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:297:  USBx_DEVICE->DAINTMSK = 0;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:329:  USBx_DEVICE->DIEPMSK &= ~(USB_OTG_DIEPMSK_TXFURM);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:334:    USBx_DEVICE->DTHRCTL = (USB_OTG_DTHRCTL_TXTHRLEN_6 | USB_OTG_DTHRCTL_RXTHRLEN_6);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:335:    USBx_DEVICE->DTHRCTL |= (USB_OTG_DTHRCTL_RXTHREN | USB_OTG_DTHRCTL_ISOTHREN | USB_OTG_DTHRCTL_NONISOTHREN);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:337:    i= USBx_DEVICE->DTHRCTL;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:436:  USBx_DEVICE->DCFG |= speed;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:453:  if((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_HS_PHY_30MHZ_OR_60MHZ)
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:457:  else if (((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_FS_PHY_30MHZ_OR_60MHZ)||
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:458:           ((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_FS_PHY_48MHZ))
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:462:  else if((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_LS_PHY_6MHZ)
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:480:   USBx_DEVICE->DAINTMSK |= USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num)));
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:491:     USBx_DEVICE->DAINTMSK |= USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:524:   USBx_DEVICE->DEACHMSK |= USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num)));
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:539:     USBx_DEVICE->DEACHMSK |= USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:555:   USBx_DEVICE->DEACHMSK &= ~(USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num))));
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:556:   USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num))));   
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:561:     USBx_DEVICE->DEACHMSK &= ~(USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16));
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:562:     USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16));     
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:580:   USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_IEPM & ((1 << (ep->num))));
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:585:     USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_OEPM & ((1 << (ep->num)) << 16));
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:644:          USBx_DEVICE->DIEPEMPMSK |= 1 << ep->num;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:651:      if ((USBx_DEVICE->DSTS & ( 1 << 8 )) == 0)
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:697:      if ((USBx_DEVICE->DSTS & ( 1 << 8 )) == 0)
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:765:        USBx_DEVICE->DIEPEMPMSK |= 1U << (ep->num);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:922:  USBx_DEVICE->DAINT = 0xFFFFFFFF;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:925:  USBx_DEVICE->DIEPMSK  = 0;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:926:  USBx_DEVICE->DOEPMSK  = 0;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:927:  USBx_DEVICE->DAINTMSK = 0;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:945:  USBx_DEVICE->DCFG &= ~ (USB_OTG_DCFG_DAD);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:946:  USBx_DEVICE->DCFG |= (address << 4) & USB_OTG_DCFG_DAD ;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:958:  USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_SDIS ;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:971:  USBx_DEVICE->DCTL |= USB_OTG_DCTL_SDIS ;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:999:  v  = USBx_DEVICE->DAINT;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:1000:  v &= USBx_DEVICE->DAINTMSK;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:1012:  v  = USBx_DEVICE->DAINT;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:1013:  v &= USBx_DEVICE->DAINTMSK;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:1028:  v &= USBx_DEVICE->DOEPMSK;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:1043:  msk = USBx_DEVICE->DIEPMSK;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:1044:  emp = USBx_DEVICE->DIEPEMPMSK;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:1085:  if((USBx_DEVICE->DSTS & USB_OTG_DSTS_ENUMSPD) == DSTS_ENUMSPD_LS_PHY_6MHZ)
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_ll_usb.c:1089:  USBx_DEVICE->DCTL |= USB_OTG_DCTL_CGINAK;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:416:            USBx_DEVICE->DIEPEMPMSK &= ~fifoemptymsk;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:467:      USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_RWUSIG;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:484:      if((USBx_DEVICE->DSTS & USB_OTG_DSTS_SUSPSTS) == USB_OTG_DSTS_SUSPSTS)
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:511:      USBx_DEVICE->DCTL &= ~USB_OTG_DCTL_RWUSIG; 
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:519:      USBx_DEVICE->DAINT = 0xFFFFFFFF;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:520:      USBx_DEVICE->DAINTMSK |= 0x10001;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:524:        USBx_DEVICE->DOUTEP1MSK |= (USB_OTG_DOEPMSK_STUPM | USB_OTG_DOEPMSK_XFRCM | USB_OTG_DOEPMSK_EPDM); 
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:525:        USBx_DEVICE->DINEP1MSK |= (USB_OTG_DIEPMSK_TOM | USB_OTG_DIEPMSK_XFRCM | USB_OTG_DIEPMSK_EPDM);  
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:529:        USBx_DEVICE->DOEPMSK |= (USB_OTG_DOEPMSK_STUPM | USB_OTG_DOEPMSK_XFRCM | USB_OTG_DOEPMSK_EPDM | USB_OTG_DOEPMSK_OTEPSPRM);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:530:        USBx_DEVICE->DIEPMSK |= (USB_OTG_DIEPMSK_TOM | USB_OTG_DIEPMSK_XFRCM | USB_OTG_DIEPMSK_EPDM);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:534:      USBx_DEVICE->DCFG &= ~USB_OTG_DCFG_DAD;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:1182:  if((USBx_DEVICE->DSTS & USB_OTG_DSTS_SUSPSTS) == USB_OTG_DSTS_SUSPSTS)
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:1185:    USBx_DEVICE->DCTL |= USB_OTG_DCTL_RWUSIG;
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:1200:   USBx_DEVICE->DCTL &= ~(USB_OTG_DCTL_RWUSIG);
+./ext/hal/st/stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_pcd.c:1291:    USBx_DEVICE->DIEPEMPMSK &= ~fifoemptymsk;
+./ext/hal/nxp/mcux/drivers/fsl_gpio.h:249: * @brief The GPIO module supports a device-specific number of data ports, organized as 32-bit
+./ext/hal/nxp/mcux/drivers/fsl_gpio.h:416: * @brief The FGPIO module supports a device-specific number of data ports, organized as 32-bit
+./ext/hal/nxp/mcux/drivers/fsl_sysmpu.h:371: * bus masters 0 - 3. However, the maximum master number is device-specific.
+./ext/hal/nxp/mcux/Makefile:38:# Build mcux device-specific objects. Although it is not normal Kbuild
+./ext/hal/nxp/mcux/devices/MKW40Z4/MKW40Z4_extension.h:2064: * with each level are device-specific. See the Data Sheet of the device for the
+./ext/hal/nxp/mcux/devices/MKW40Z4/MKW40Z4_extension.h:22801: * device-specific. If a four-entry TX FIFO is implemented, TXFR0-TXFR3 are accessible.
+./ext/hal/nxp/mcux/devices/MKW40Z4/MKW40Z4_extension.h:22851: * device-specific. If a four-entry TX FIFO is implemented, TXFR0-TXFR3 are accessible.
+./ext/hal/nxp/mcux/devices/MKW40Z4/MKW40Z4_extension.h:22901: * device-specific. If a four-entry TX FIFO is implemented, TXFR0-TXFR3 are accessible.
+./ext/hal/nxp/mcux/devices/MKW40Z4/MKW40Z4_extension.h:22951: * device-specific. If a four-entry TX FIFO is implemented, TXFR0-TXFR3 are accessible.
+./ext/hal/nxp/mcux/devices/MKW40Z4/MKW40Z4_extension.h:23000: * registers used to implement the RX FIFO is device-specific. For example, if a
+./ext/hal/nxp/mcux/devices/MKW40Z4/MKW40Z4_extension.h:23022: * registers used to implement the RX FIFO is device-specific. For example, if a
+./ext/hal/nxp/mcux/devices/MKW40Z4/MKW40Z4_extension.h:23044: * registers used to implement the RX FIFO is device-specific. For example, if a
+./ext/hal/nxp/mcux/devices/MKW40Z4/MKW40Z4_extension.h:23066: * registers used to implement the RX FIFO is device-specific. For example, if a
+./ext/hal/cmsis/Include/core_cm7.h:1831:  \details Enables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_cm7.h:1842:  \details Disables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_cm0plus.h:742:  \details Enables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_cm0plus.h:753:  \details Disables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_sc000.h:754:  \details Enables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_sc000.h:765:  \details Disables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_sc300.h:1431:  \details Enables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_sc300.h:1442:  \details Disables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_cm3.h:1449:  \details Enables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_cm3.h:1460:  \details Disables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_cm0.h:626:  \details Enables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_cm0.h:637:  \details Disables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_cm4.h:1623:  \details Enables a device-specific interrupt in the NVIC interrupt controller.
+./ext/hal/cmsis/Include/core_cm4.h:1634:  \details Disables a device-specific interrupt in the NVIC interrupt controller.
+./scripts/checkpatch.pl:6081:				      "lockdep_no_validate class is reserved for device->mutex.\n" . $herecurr);
+./doc/drivers/drivers.rst:52:High-level calls accessed through device-specific APIs, such as i2c.h
+./doc/drivers/drivers.rst:104:The `driver_api` struct maps generic subsystem APIs to the device-specific
+./doc/drivers/drivers.rst:112:Most drivers will be targeting a device-independent subsystem API.
+./doc/drivers/drivers.rst:132:        api = (struct subsystem_api *)device->driver_api;
+./doc/drivers/drivers.rst:140:        api = (struct subsystem_api *)device->driver_api;
+./doc/drivers/drivers.rst:176:`DEVICE_AND_API_INIT()`, or manually assign it to `device->driver_api` in the
+./doc/drivers/drivers.rst:224:        const struct my_driver_config *config = device->config->config_info;
+./doc/porting/arch.rst:88:interrupt.  For interrupts, that work is device-specific. For exceptions, it
+./doc/dts/device_tree.rst:1:.. _device-tree:
+./doc/kernel/other/interrupts.rst:351:Additional architecture-specific and device-specific configuration options
+./doc/kernel/threads/workqueues.rst:205:        printk("Got error on device %s\n", the_device->name);
+./doc/getting_started/installation_linux.rst:58:	 python3-yaml dfu-util device-tree-compiler
+./drivers/ieee802154/ieee802154_cc2520.c:1266:	struct cc2520_context *cc2520 = ctx->device->driver_data;
+./drivers/ieee802154/ieee802154_cc2520.c:1357:	struct cc2520_context *cc2520 = ctx->device->driver_data;
+./drivers/ieee802154/ieee802154_cc2520.c:1404:	struct cc2520_context *cc2520 = ctx->device->driver_data;
+./drivers/gpio/gpio_stm32.c:185:	const struct gpio_stm32_config *cfg = device->config->config_info;
+./samples/hello_world/outdir/zedboard_pulpino/zephyr.lst:2740:		device->init(info);
+./samples/hello_world/outdir/zedboard_pulpino/zephyr.lst:2755:		device->init(info);
+./samples/hello_world/outdir/zedboard_pulpino/zephyr.lst:2776:		device->init(info);
+./samples/hello_world/outdir/zedboard_pulpino/asm.S:2740:		device->init(info);
+./samples/hello_world/outdir/zedboard_pulpino/asm.S:2755:		device->init(info);
+./samples/hello_world/outdir/zedboard_pulpino/asm.S:2776:		device->init(info);
+./samples/subsys/shell/shell/outdir/zedboard_pulpino/zephyr.lst:6506:		device->init(info);
+./samples/subsys/shell/shell/outdir/zedboard_pulpino/zephyr.lst:6521:		device->init(info);
+./samples/subsys/shell/shell/outdir/zedboard_pulpino/zephyr.lst:6542:		device->init(info);
+./samples/philosophers/outdir/zedboard_pulpino/zephyr.lst:3307:		device->init(info);
+./samples/philosophers/outdir/zedboard_pulpino/zephyr.lst:3322:		device->init(info);
+./samples/philosophers/outdir/zedboard_pulpino/zephyr.lst:3343:		device->init(info);
+./include/device.h:372:	return device->config->device_pm_control(device,
+./include/device.h:392:	return device->config->device_pm_control(device,
+./include/spi_legacy.h:59: *    RESERVED       [ 12 : 31 ] - Undefined or device-specific usage.
+./kernel/device.c:54:		device->init(info);

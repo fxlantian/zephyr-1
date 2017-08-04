@@ -1,0 +1,8 @@
+sample:
+    description: TBD
+    name: TBD
+tests:
+-   test:
+        platform_whitelist: arduino_101 frdm_k64f qemu_x86
+        build_only: true
+        tags: net
