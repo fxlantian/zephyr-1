@@ -6,7 +6,7 @@ config SOC
 
 config SYS_CLOCK_HW_CYCLES_PER_SEC
 	int
-	default 5000000
+	default 50000000
 
 config RISCV_SOC_CONTEXT_SAVE
 	bool
@@ -30,7 +30,8 @@ config NUM_IRQS
 
 config ITCM_BASE_ADDRESS
 	hex
-	default	0x50000000
+#	default	0x50000000
+	default	0x26000000
 
 config ITCM_SIZE
 	hex
@@ -38,7 +39,8 @@ config ITCM_SIZE
 
 config DTCM_BASE_ADDRESS
 	hex
-	default 0x51000000
+#	default 0x51000000
+	default 0x26800000
 
 config DTCM_SIZE
 	hex

@@ -1,0 +1,13 @@
+config I2C_PPU
+        bool "I2C driver for PPU"
+        depends on I2C
+        default n
+        help
+          enable I2C support for PPU
+
+config I2C_PPU_INTERRUPT
+        bool "PPU I2C Interrupt Support"
+        depends on I2C_PPU
+        default n
+        help
+          Enable Interrupt Support forthe I2C Driver.

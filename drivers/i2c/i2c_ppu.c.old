@@ -1,0 +1,289 @@
+#include <misc/util.h>
+#include <kernel.h>
+#include <board.h>
+#include <errno.h>
+#include <i2c.h>
+#include <misc/printk.h>
+#include "i2c_ppu.h"
+
+#define DEV_CFG(dev)                           \
+        ((struct i2c_ppu_config * const)(dev)->config->config_info)
+#define DEV_DATA(dev)                          \
+        ((struct i2c_ppu_data * const)(dev)->driver_data)
+#define DEV_I2C(dev)                           \
+        ((struct i2c_ppu_t *)(DEV_CFG(dev))->i2c_base_addr)
+
+#define I2C_PRESCALER(fre)                     \
+        (CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC / (5 * (fre + 1)))
+
+static int i2c_ppu_configure(struct device *dev, u32_t config)
+{
+    const struct i2c_ppu_config *cfg = DEV_CFG(dev);
+    struct i2c_ppu_data *data = DEV_DATA(dev);
+    struct i2c_ppu_t *i2c = DEV_I2C(dev);
+
+    data->dev_cfg.raw = config;
+
+    switch (data->dev_cfg.bits.speed) {
+    case I2C_SPEED_STANDARD:
+        i2c->pre = 0x63;
+        break;
+    case I2C_SPEED_FAST:
+        i2c->pre = I2C_PRESCALER(400000);
+        break;
+    default:
+        return -EINVAL;
+    }
+
+    return 0;
+}
+
+static void i2c_ppu_isr(struct device *dev)
+{
+    /*Nothing to do*/
+}
+
+static int i2c_get_ack(struct device *dev) {
+    struct i2c_ppu_t *i2c = DEV_I2C(dev);
+    while ((i2c->status & I2C_STATUS_TIP) == 0);
+    while ((i2c->status & I2C_STATUS_TIP) != 0);
+    return !(i2c->status & I2C_STATUS_RXACK);
+}
+
+static void i2c_msg_write(struct device *dev, struct i2c_msg *msg, u16_t slave_address)
+{
+    u8_t *buf = msg->buf;
+    struct i2c_ppu_t *i2c = DEV_I2C(dev);
+
+    i2c->tx = slave_address & 0xFF;
+    i2c->cmd = I2C_START_WRITE;
+    i2c_get_ack(dev); 
+
+    i2c->tx = 0x00;
+    i2c->cmd = I2C_WRITE;
+    i2c_get_ack(dev); 
+
+    for(int i = 0; i < msg->len; i++)
+    {
+        i2c->tx = buf[i];
+        i2c->cmd = I2C_WRITE;
+        i2c_get_ack(dev); 
+    }
+    i2c->cmd = I2C_STOP; 
+    while(((i2c->status) & I2C_STATUS_BUSY) == I2C_STATUS_BUSY);
+
+    do {
+        i2c->tx = slave_address & 0xFF;
+        i2c->cmd = I2C_START_WRITE;
+    } while(!i2c_get_ack(dev));
+    i2c->cmd = I2C_STOP; 
+    while(((i2c->status) & I2C_STATUS_BUSY) == I2C_STATUS_BUSY);
+
+    i2c->tx = slave_address & 0xFF;
+    i2c->cmd = I2C_START_WRITE;
+    if(!i2c_get_ack(dev)) {
+        printk("No ack recieved from EEPROM!\n");
+    } 
+
+    i2c->tx = 0x00;
+    i2c->cmd = I2C_WRITE;
+    if(!i2c_get_ack(dev)) {
+        printk("No ack recieved from EEPROM!\n");
+    } 
+    
+    i2c->cmd = I2C_STOP; 
+    while(((i2c->status) & I2C_STATUS_BUSY) == I2C_STATUS_BUSY);
+}
+
+static void i2c_msg_read(struct device *dev, struct i2c_msg *msg, u16_t slave_address)
+{
+    struct i2c_ppu_t *i2c = DEV_I2C(dev);
+    i2c->tx = slave_address & 0xFF;
+    i2c->cmd = I2C_START_WRITE;
+    if(!i2c_get_ack(dev)) {
+        printk("No ack recieved from EEPROM!\n");
+    } 
+    
+    int value = 0;
+    for (int i = 0; i < msg->len; i++) {
+        if (i == (msg->len - 1))
+            i2c->cmd = I2C_STOP_READ;
+        else
+            i2c->cmd = I2C_READ;
+
+        if(!i2c_get_ack(dev)) {
+            printk("No ack recieved from EEPROM!\n");
+        } 
+    
+        value = i2c->rx;
+        printk("recieve %d expection %d \n", value, i);
+    }
+    while(((i2c->status) & I2C_STATUS_BUSY) == I2C_STATUS_BUSY);
+    printk("exit read busy!!!!\n");
+}
+
+static void i2c_read_write_eeprom(struct device *dev)
+{
+    struct i2c_ppu_t *i2c = DEV_I2C(dev);
+    printk("i2c read and write\n");
+
+    i2c->pre = 0x63;
+    i2c->ctr = I2C_CTR_EN;
+
+    i2c->tx = 0xA0;
+    i2c->cmd = I2C_START_WRITE;
+    i2c_get_ack(dev); 
+
+    i2c->tx = 0x00;
+    i2c->cmd = I2C_WRITE;
+    i2c_get_ack(dev); 
+
+    for(int i = 0; i < 16; i++)
+    {
+        i2c->tx = i;
+        i2c->cmd = I2C_WRITE;
+        i2c_get_ack(dev); 
+    }
+    i2c->cmd = I2C_STOP; 
+    while(((i2c->status) & I2C_STATUS_BUSY) == I2C_STATUS_BUSY);
+
+    do {
+        i2c->tx = 0xA0;
+        i2c->cmd = I2C_START_WRITE;
+    } while(!i2c_get_ack(dev));
+    i2c->cmd = I2C_STOP; 
+    while(((i2c->status) & I2C_STATUS_BUSY) == I2C_STATUS_BUSY);
+
+    i2c->tx = 0xA0;
+    i2c->cmd = I2C_START_WRITE;
+    if(!i2c_get_ack(dev)) {
+        printk("No ack recieved from EEPROM!\n");
+    } 
+
+    i2c->tx = 0x00;
+    i2c->cmd = I2C_WRITE;
+    if(!i2c_get_ack(dev)) {
+        printk("No ack recieved from EEPROM!\n");
+    } 
+    
+    i2c->cmd = I2C_STOP; 
+    while(((i2c->status) & I2C_STATUS_BUSY) == I2C_STATUS_BUSY);
+ 
+    i2c->tx = 0xA1;
+    i2c->cmd = I2C_START_WRITE;
+    if(!i2c_get_ack(dev)) {
+        printk("No ack recieved from EEPROM!\n");
+    } 
+    
+    int value = 0;
+    for (int i = 0; i < 16; i++) {
+        if (i == 15)
+            i2c->cmd = I2C_STOP_READ;
+        else
+            i2c->cmd = I2C_READ;
+
+        if(!i2c_get_ack(dev)) {
+            printk("No ack recieved from EEPROM!\n");
+        } 
+    
+        value = i2c->rx;
+        printk("recieve %d expect %d \n", value, i);
+    }
+    while(((i2c->status) & I2C_STATUS_BUSY) == I2C_STATUS_BUSY);
+    printk("exit read busy!!!!\n");
+}
+
+static int i2c_ppu_transfer(struct device *dev, struct i2c_msg *msg,
+                        u8_t num_msgs, u16_t slave_address)
+{
+//    const struct i2c_ppu_config *cfg = DEV_CFG(dev);
+    struct i2c_ppu_t *i2c = DEV_I2C(dev);
+    i2c->pre = 0x63;
+   
+#ifdef CONFIG_I2C_PPU_INTERRUPT
+    i2c->ctr = I2C_CTR_INTEN;
+#else
+    i2c->ctr = I2C_CTR_EN;
+
+    while(num_msgs > 0)
+    {
+        if((msg->flags & I2C_MSG_RW_MASK) == I2C_MSG_WRITE) {
+            i2c_msg_write(dev, msg, slave_address);
+        } else {
+            i2c_msg_read(dev, msg, slave_address);
+        }
+
+        num_msgs--;
+        if(num_msgs) {
+            msg++;
+        } else {
+            msg = NULL;
+        }
+    }    
+
+#endif
+//    printk("i2c test\n");
+//    i2c_read_write_eeprom(dev);
+    i2c->ctr = 0x00;  //clear enable bit
+    return 0;
+}
+
+static const struct i2c_driver_api i2c_ppu_driver = {
+    .configure = i2c_ppu_configure,
+    .transfer = i2c_ppu_transfer,
+};
+
+
+static int i2c_ppu_init(struct device *dev)
+{
+    const struct i2c_ppu_config *cfg = DEV_CFG(dev);
+    struct i2c_ppu_data *data = DEV_DATA(dev);
+    int ret;
+ 
+    ret = i2c_ppu_configure(dev, data->dev_cfg.raw);
+    if(ret < 0) {
+        return ret;
+    }
+
+#ifdef CONFIG_I2C_STM32_INTERRUPT
+    k_sem_init(&data->device_sync_sem, 0, UINT_MAX);
+    cfg->irq_config(dev);
+#endif
+    return 0;
+}
+
+//#ifdef CONFIG_I2C_0
+
+#ifdef CONFIG_I2C_PPU_INTERRUPT
+static void i2c_ppu_irq_config_func_0(struct device *dev);
+#endif
+
+static const struct i2c_ppu_config i2c_ppu_cfg_0 = {
+    .i2c_base_addr = PPU_I2C_0_BASE,
+
+#ifdef CONFIG_I2C_PPU_INTERRUPT
+    .irq_config = i2c_ppu_irq_config_func_0,
+#endif
+};
+
+static struct i2c_ppu_data i2c_ppu_dev_data_0;
+
+DEVICE_AND_API_INIT(i2c_ppu_0, "i2c0", &i2c_ppu_init,
+                    &i2c_ppu_dev_data_0, &i2c_ppu_cfg_0,
+                    POST_KERNEL, CONFIG_KERNEL_INIT_PRIORITY_DEVICE,
+                    &i2c_ppu_driver);
+
+#ifdef CONFIG_I2C_PPU_INTERRUPT
+static void i2c_ppu_irq_config_func_0(struct device *dev)
+{
+   IRQ_CONNECT(PPU_I2C_0_IRQ, 0, i2c_ppu_isr, DEVICE_GET(i2c_ppu_0),0);
+   irq_enable(PPU_I2C_0_IRQ); 
+}
+#endif
+
+//#endif /*CONFIG_I2C_1*/
+
+
+
+
+

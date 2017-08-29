@@ -1,0 +1,15 @@
+
+menuconfig PINMUX_PPU
+	bool "PPU SOC pinmux driver"
+	depends on PINMUX && SOC_RISCV32_PPU
+	default n
+	help
+	Enable driver for the PPU SOC pinmux driver
+
+if PINMUX_PPU
+
+config PINMUX_PPU_0_NAME
+	string "PPU pinmux 0 driver name"
+	default "pinmux_0"
+
+endif # PINMUX_PPU

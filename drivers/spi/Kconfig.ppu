@@ -1,0 +1,20 @@
+
+menuconfig SPI_PPU
+        bool
+        prompt "Artix7 PPU SPI controller driver"
+        depends on SPI
+        default n
+        help
+          Enable support for PPU's SPI controllers.
+
+if SPI_PPU
+
+config SPI_PPU_INTERRUPT
+        bool
+        prompt "PPU SPI Interrupt Support"
+        depends on SPI_PPU
+        default n
+        help
+          Enable Interrupt support for the SPI Driver of PPU 
+
+endif

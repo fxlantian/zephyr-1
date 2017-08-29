@@ -73,7 +73,12 @@
 
 /* GPIO configuration */
 #define PPU_GPIO_0_BASE           0x1A101000
+#define PPU_SPI_0_BASE            0x1A102000
+#define PPU_I2C_0_BASE            0x1A105000
+#define PPU_SPI_1_BASE            0x1A108000
 
+/* PINMAX*/
+#define PPU_IOMUX_CFG_BASE         0x1A106020
 
 /* IRQ configuration */
 #define PPU_IRQ_BASE              0x1A104000

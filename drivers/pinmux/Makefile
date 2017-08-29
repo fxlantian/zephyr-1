@@ -28,6 +28,7 @@ obj-$(CONFIG_BOARD_STM32_MIN_DEV) += stm32/pinmux_board_stm32_min_dev.o
 obj-$(CONFIG_PINMUX_QMSI) += pinmux_qmsi.o
 obj-$(CONFIG_PINMUX_FE310) += pinmux_fe310.o
 obj-$(CONFIG_PINMUX_CC2650) += pinmux_cc2650.o
+obj-$(CONFIG_PINMUX_PPU) += pinmux_ppu.o
 
 # "runtime" pinmux
 obj-$(CONFIG_PINMUX_DEV) += dev/

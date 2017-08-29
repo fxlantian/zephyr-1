@@ -1,0 +1,15 @@
+# Kconfig.pulpino - pulpino GPIO configuration option
+#
+# Copyright (c) 2016 Jean-Paul Etienne <fractalclone@gmail.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+menuconfig GPIO_PPU
+	bool "Pulpino GPIO controller driver"
+	depends on GPIO && SOC_RISCV32_PPU
+	default n
+	help
+	  Enable driver for the PPU GPIO controller.
+
+	  Says n if not sure.

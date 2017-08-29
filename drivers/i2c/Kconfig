@@ -127,6 +127,8 @@ source "drivers/i2c/Kconfig.sbcon"
 
 source "drivers/i2c/Kconfig.gpio"
 
+source "drivers/i2c/Kconfig.ppu"
+
 config I2C_INIT_PRIORITY
 	int
 	default 60
