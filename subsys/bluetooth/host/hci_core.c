@@ -41,6 +41,8 @@
 #include "smp.h"
 #include "crypto.h"
 
+#include <misc/printk.h>
+
 /* Peripheral timeout to initialize Connection Parameter Update procedure */
 #define CONN_UPDATE_TIMEOUT  K_SECONDS(5)
 #define RPA_TIMEOUT          K_SECONDS(CONFIG_BLUETOOTH_RPA_TIMEOUT)
@@ -4052,11 +4054,15 @@ static void hci_rx_thread(void)
 int bt_enable(bt_ready_cb_t cb)
 {
 	int err;
+        
+        printk("BT enable...\n");     
 
 	if (!bt_dev.drv) {
 		BT_ERR("No HCI driver registered");
 		return -ENODEV;
 	}
+
+        printk("UART1 work properly\n");     
 
 	if (atomic_test_and_set_bit(bt_dev.flags, BT_DEV_ENABLE)) {
 		return -EALREADY;
@@ -4064,12 +4070,16 @@ int bt_enable(bt_ready_cb_t cb)
 
 	ready_cb = cb;
 
+        printk("Before TX thread...\n");     
+
 	/* TX thread */
 	k_thread_create(&tx_thread_data, tx_thread_stack,
 			K_THREAD_STACK_SIZEOF(tx_thread_stack),
 			hci_tx_thread, NULL, NULL, NULL,
 			K_PRIO_COOP(CONFIG_BLUETOOTH_HCI_TX_PRIO),
 			0, K_NO_WAIT);
+
+        printk("TX thread has been created\n");     
 
 #if !defined(CONFIG_BLUETOOTH_RECV_IS_RX_THREAD)
 	/* RX thread */
@@ -4089,6 +4099,8 @@ int bt_enable(bt_ready_cb_t cb)
 		BT_ERR("HCI driver open failed (%d)", err);
 		return err;
 	}
+
+        printk("BT driver opened\n");     
 
 	if (!cb) {
 		return bt_init();

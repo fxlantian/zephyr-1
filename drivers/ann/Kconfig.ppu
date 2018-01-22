@@ -1,0 +1,13 @@
+config ANN_PPU
+        bool "ANN driver for PPU"
+        depends on ANN
+        default n
+        help
+          enable ANN support for PPU
+
+config ANN_PPU_INTERRUPT
+        bool "PPU ANN Interrupt Support"
+        depends on ANN_PPU
+        default n
+        help
+          Enable Interrupt Support forthe ANN Driver.

@@ -71,10 +71,28 @@
 #define UART_NS16550_PORT_0_CLK_FREQ      50000000  /* 50MHz */
 #define UART_NS16550_PORT_0_IRQ           PPU_UART_0_IRQ
 
+#define UART_NS16550_PORT_1_BASE_ADDR     0x1A107000
+#define UART_NS16550_PORT_1_CLK_FREQ      50000000  /* 50MHz */
+#define UART_NS16550_PORT_1_IRQ           PPU_UART_1_IRQ
+
+/** Registers and pointers */
+#define REG(x) (*((volatile unsigned int*)(x)))
+
+/* PWM configuration */
+#define PPU_PWM_BASE           0x1A118000
+
+/* CAM configuration */
+#define PPU_CAM_BASE           0x28001000
+
+/**  ANN **/
+#define PPU_ANN_BASE          0x28002000
+
 /* GPIO configuration */
 #define PPU_GPIO_0_BASE           0x1A101000
 #define PPU_SPI_0_BASE            0x1A102000
+//#define PPU_SPI_0_BASE            0x1A108000
 #define PPU_I2C_0_BASE            0x1A105000
+#define PPU_I2C_1_BASE            0x1A109000
 #define PPU_SPI_1_BASE            0x1A108000
 
 /* PINMAX*/

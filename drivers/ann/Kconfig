@@ -1,0 +1,31 @@
+# Kconfig - ANN configuration options
+
+#
+# Copyright (c) 2015 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+menuconfig ANN
+	bool "ANN (Pulse Width Modulation) Drivers"
+	default n
+	help
+	  Enable config options for ANN drivers.
+
+if ANN
+
+source "drivers/ann/Kconfig.pca9685"
+
+source "drivers/ann/Kconfig.qmsi"
+
+source "drivers/ann/Kconfig.dw"
+
+source "drivers/ann/Kconfig.k64"
+
+source "drivers/ann/Kconfig.stm32"
+
+source "drivers/ann/Kconfig.nrf5_sw"
+
+source "drivers/ann/Kconfig.ppu"
+
+endif # ANN

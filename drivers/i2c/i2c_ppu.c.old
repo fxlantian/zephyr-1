@@ -282,8 +282,3 @@ static void i2c_ppu_irq_config_func_0(struct device *dev)
 #endif
 
 //#endif /*CONFIG_I2C_1*/
-
-
-
-
-

@@ -17,7 +17,7 @@
         ((volatile struct spi_ppu_t *)(DEV_SPI_CFG(dev))->spi_base_addr)
 
 #define SPI_PPU_CLK_DIVIDER(spi_clk_hz)            \
-        (((CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC / (2 * spi_clk_hz)) - 1) & 0xFFFF)
+        (((CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC / (2 * spi_clk_hz)) - 4) & 0xFFFF)
 #define SPI_START_TRANSACTION(trans_type, csnum)   \
         (((1 << (csnum + 8)) & 0xF00) | ((1 << trans_type) & 0xFF))
 
@@ -30,12 +30,11 @@ static void spi_ppu_isr(struct device *dev)
     volatile struct spi_ppu_t *spi = DEV_SPI(dev);
     int status = 0;
 
-    PPU_ICP |= 1 << 26; 
-    status = spi->int_sta;
+    PPU_ICP |= 1 << 26;
 
-    
-    spi_context_complete(&data->ctx, 0);     
-
+    status = *(volatile int*)(SPI_REG_INTSTA);
+  
+    spi_context_complete(&data->ctx, 0);
 }
 
 static int spi_ppu_configure(struct spi_config *config)
@@ -47,13 +46,13 @@ static int spi_ppu_configure(struct spi_config *config)
     if(spi_context_configured(&data->ctx, config)){
         return 0;
     }
-    
-    spi->clk_div = SPI_PPU_CLK_DIVIDER(config->frequency);   //set the clock divider
-
+    printk("%x\n", config->frequency);
+    printk("%x\n", SPI_PPU_CLK_DIVIDER(config->frequency));
+    *(volatile int*)(SPI_REG_CLKDIV) = SPI_PPU_CLK_DIVIDER(config->frequency);   //set the clock divider 
+    printk("%x\n", *(volatile int*)(SPI_REG_CLKDIV));
     data->ctx.config = config;
 
     return 0;
-
 }
 
 static void spi_ppu_transmit(struct device *dev)
@@ -75,6 +74,8 @@ static void spi_ppu_transmit(struct device *dev)
         }
 
         if(data->ctx.tx_len > 1) {
+            //printk("%d\n", data->ctx.tx_len);
+            //printk("i is %d\n", i);
             int temp = data->ctx.tx_len;
             while(temp) {
                 prime_addr[i + temp - 1] = (*(u8_t *)(data->ctx.tx_buf++));
@@ -83,62 +84,56 @@ static void spi_ppu_transmit(struct device *dev)
             i += data->ctx.tx_len;
         }
         else {
+            //printk("i2 is %d\n", i);
             prime_addr[i] = (*(u8_t *)(data->ctx.tx_buf));
             i++;
         }
-        
         data->ctx.tx_len = 1;                   //clear tx_len
         spi_context_update_tx(&data->ctx, 1);   //get next buffer address and length
     }
 
     //set the command register and address register
-    spi->spi_cmd = ((prime_addr[0] & 0xFF) << 24) | ((prime_addr[1] & 0xFF) << 16) | ((prime_addr[2] & 0xFF) << 8) | (prime_addr[3] & 0xFF);
-    spi->spi_adr = ((prime_addr[4] & 0xFF) << 24) | ((prime_addr[5] & 0xFF) << 16) | ((prime_addr[6] & 0xFF) << 8) | (prime_addr[7] & 0xFF);
+    *(volatile int*)(SPI_REG_SPICMD) = ((prime_addr[0] & 0xFF) << 24) | ((prime_addr[1] & 0xFF) << 16) | ((prime_addr[2] & 0xFF) << 8) | (prime_addr[3] & 0xFF);
+    *(volatile int*)(SPI_REG_SPIADR) = ((prime_addr[4] & 0xFF) << 24) | ((prime_addr[5] & 0xFF) << 16) | ((prime_addr[6] & 0xFF) << 8) | (prime_addr[7] & 0xFF);
 
     if(i <= 4) {                                                 //if i <= 4, put the data in cmd register
-        spi->spi_len = i * 8;
+        *(volatile int*)(SPI_REG_SPILEN) = i * 8;
     } else {
-        spi->spi_len = 0x20 | ((((i - 4) * 8) << 8) & 0x3F00);   //if 4<=i<=8, put low 4 byte data in cmd register, high 4 byte or less data in addr register
+        *(volatile int*)(SPI_REG_SPILEN) = 0x20 | ((((i - 4) * 8) << 8) & 0x3F00);   //if 4<=i<=8, put low 4 byte data in cmd register, high 4 byte or less data in addr register
     }
-    spi->spi_dum = 0x00;                                         //set the dummy cycles to 0 initially
-
+    *(volatile int*)(SPI_REG_SPIDUM) = 0x00;                                         //set the dummy cycles to 0 initially
 
     //if data waiting to send out is less than 8 byte, or there is no need to wait to recieve data after that, start transaction here.
-    if((i < 8) && (!data->ctx.tx_len) && (!data->ctx.rx_len)) {
-        spi->status = SPI_START_TRANSACTION(SPI_CMD_WR, SPI_CSN0);
-        while((spi->status & 0xFFFF) != 1);
+    if((!data->ctx.tx_len) && (!data->ctx.rx_len)) {
+        *(volatile int*)(SPI_REG_STATUS) = SPI_START_TRANSACTION(SPI_CMD_WR, SPI_CSN0);
+        while((*(volatile int*)(SPI_REG_STATUS) & 0xFFFF) != 1);
         return;
     }
 
     while(data->ctx.tx_len)
     {
-        if(data->ctx.tx_buf) {
-            reg_data = spi->spi_len;
-            datalen = data->ctx.tx_len * 8;
-            spi->spi_len = ((datalen << 16) & 0xFFFF0000) | (reg_data & 0xFFFF);  //set data length
+        reg_data = *(volatile int*)(SPI_REG_SPILEN);
+        datalen = data->ctx.tx_len * 8;
+        *(volatile int*)(SPI_REG_SPILEN) = ((datalen << 16) & 0xFFFF0000) | (reg_data & 0xFFFF);  //set data length
  
-            num_words = (datalen >> 5) & 0x7FF;
-            if((datalen & 0x1F) != 0)
-                num_words++;
+        num_words = (datalen >> 5) & 0x7FF;
+        if((datalen & 0x1F) != 0)
+            num_words++;
 
-            volatile int *tx_data = (volatile int *)(data->ctx.tx_buf);           //get the data buffer
-            spi->status = SPI_START_TRANSACTION(SPI_CMD_WR, SPI_CSN0);            //start transaction
+        volatile int *tx_data = (volatile int *)(data->ctx.tx_buf);           //get the data buffer
+        *(volatile int*)(SPI_REG_STATUS) = SPI_START_TRANSACTION(SPI_CMD_WR, SPI_CSN0);            //start transaction
 
-            for(i = 0; i < num_words; i++) {
-                while(((spi->status >> 24) & 0xFF) >= 8);
-                spi->tx_fifo = tx_data[i];                                        //fill the tx fifo
-            }
-            while((spi->status & 0xFFFF) != 1);
-
-            spi->spi_cmd = 0x00;
-            spi->spi_adr = 0x00;
-            spi->spi_len = 0x00;
-            spi->spi_dum = 0x00;                                     //clear registers
+        for(i = 0; i < num_words; i++) {
+            while(((*(volatile int*)(SPI_REG_STATUS) >> 24) & 0xFF) >= 8);
+            *(volatile int*)(SPI_REG_TXFIFO) = tx_data[i];                                        //fill the tx fifo
         }
-        else {
-            spi->spi_dum = (data->ctx.tx_len << 16) & 0xFFFF0000;    //if tx_buf is NULL, set write dummy cycles = tx_len
-        }
-       
+        while((*(volatile int*)(SPI_REG_STATUS) & 0xFFFF) != 1);
+
+        *(volatile int*)(SPI_REG_SPICMD) = 0x00;
+        *(volatile int*)(SPI_REG_SPIADR) = 0x00;
+        *(volatile int*)(SPI_REG_SPILEN) = 0x00;
+        *(volatile int*)(SPI_REG_SPIDUM) = 0x00;                                     //clear registers
+
         data->ctx.tx_len = 1;
         spi_context_update_tx(&data->ctx, 1);                        //clear tx_len, get next buffer and length
     }
@@ -154,36 +149,31 @@ static void spi_ppu_recieve(struct device *dev)
     volatile int num_words = 0;
     volatile int i = 0;
 
-    reg_data = spi->spi_len;
+    reg_data = *(volatile int*)(SPI_REG_SPILEN);
 
     while(data->ctx.rx_len)
     {
-        if(data->ctx.rx_buf) {
+        datalen = data->ctx.rx_len * 8;
+        *(volatile int*)(SPI_REG_SPILEN) = ((datalen << 16) & 0xFFFF0000) | (reg_data & 0xFFFF);
 
-            datalen = data->ctx.rx_len * 8;
-            spi->spi_len = ((datalen << 16) & 0xFFFF0000) | (reg_data & 0xFFFF);
+        num_words = (datalen >> 5) & 0x7FF;
+        if((datalen & 0x1F) != 0)
+            num_words++;
 
-            num_words = (datalen >> 5) & 0x7FF;
-            if((datalen & 0x1F) != 0)
-                num_words++;
+        volatile int *rx_data = (volatile int *)(data->ctx.rx_buf);
+        *(volatile int*)(SPI_REG_STATUS) = SPI_START_TRANSACTION(SPI_CMD_RD, SPI_CSN0);
 
-            volatile int *rx_data = (volatile int *)(data->ctx.rx_buf);
-            spi->status = SPI_START_TRANSACTION(SPI_CMD_RD, SPI_CSN0);
-
-            for(i = 0; i < num_words; i++) {
-                while(((spi->status >> 16) & 0xFF) == 0);
-                rx_data[i] = spi->rx_fifo;                 //get data from rx fifo                    
-            }
-            while((spi->status & 0xFFFF) != 1);
-            
-            spi->spi_cmd = 0x00;
-            spi->spi_adr = 0x00;
-            spi->spi_len = 0x00;
-            spi->spi_dum = 0x00;
+        for(i = 0; i < num_words; i++) {
+            while(((*(volatile int*)(SPI_REG_STATUS) >> 16) & 0xFF) == 0);
+            rx_data[i] = *(volatile int*)(SPI_REG_RXFIFO);                 //get data from rx fifo                    
         }
-        else {
-            spi->spi_dum = data->ctx.rx_len & 0xFFFF;     //if rx_buf is NULL, set read dummy cycles = rx_len
-        }
+        while((*(volatile int*)(SPI_REG_STATUS) & 0xFFFF) != 1);
+
+        *(volatile int*)(SPI_REG_SPICMD) = 0x00;
+        *(volatile int*)(SPI_REG_SPIADR) = 0x00;
+        *(volatile int*)(SPI_REG_SPILEN) = 0x00;
+        *(volatile int*)(SPI_REG_SPIDUM) = 0x00;
+
         data->ctx.rx_len = 1;
         spi_context_update_rx(&data->ctx, 1);             //clear rx_len, get the next buffer and length of the buffer 
     }
@@ -222,7 +212,7 @@ static int transceive(struct spi_config *config,
     spi_context_buffers_setup(&data->ctx, tx_bufs, tx_count, rx_bufs, rx_count, 1);
 
 #ifdef CONFIG_SPI_PPU_INTERRUPT
-    spi->int_cfg |= (0x3) << 29;
+    *(volatile int*)(SPI_REG_INTCFG) |= (0x3) << 29;
     spi_context_wait_for_completion(&data->ctx);
 #else
     if(tx_count) {            //send data
@@ -277,7 +267,6 @@ static int spi_ppu_init(struct device *dev)
 
 
 #ifdef CONFIG_SPI_0
-
 static void spi_ppu_irq_config_func_0(void);
 
 static const struct spi_ppu_config spi_ppu_cfg_0 = {

@@ -11,27 +11,13 @@ static union dev_config i2c_cfg = {
 	.raw = 0,
 	.bits = {
 		.use_10_bit_addr = 0,
-		.is_master_device = 1,
+		.is_master_device = 0,
 		.speed = I2C_SPEED_STANDARD,
 	},
 };
 
 void main()
 {
-/*
-    struct device *pinmux_dev;
-
-    pinmux_dev = device_get_binding("pinmux_0");
-    if(!pinmux_dev)
-    {
-        printk("Cannot find pinmux_0!\n");
-        return;
-    }
-
-    pinmux_pin_set(pinmux_dev, 0, I2C_FUNC);
-    pinmux_pin_set(pinmux_dev, 1, I2C_FUNC);
-*/
-
     printk("This is Zephyr I2C_PPU Driver test... \n");
     struct device *i2c_dev = device_get_binding("i2c0");
     if(!i2c_dev) {
@@ -73,6 +59,7 @@ void main()
     for(int i = 0; i < 12; i++)
         datas[i+1] = 2*(i + 1);
 
+   
     i2c_write(i2c_dev, datas, 13, 0xA0);
     printk("data send over\n");
 
@@ -112,3 +99,5 @@ void main()
     }
 
 }
+
+

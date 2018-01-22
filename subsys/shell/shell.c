@@ -26,6 +26,7 @@
 #endif
 
 #include <shell/shell.h>
+#include <cam.h>
 
 #define ARGC_MAX 10
 #define COMMAND_MAX_LEN 50
@@ -390,6 +391,9 @@ int shell_exec(char *line)
 
 static void shell(void *p1, void *p2, void *p3)
 {
+	struct device *lcd_dev;
+    lcd_dev = device_get_binding("lcd_0");
+    const char *str;
 	ARG_UNUSED(p1);
 	ARG_UNUSED(p2);
 	ARG_UNUSED(p3);
@@ -398,6 +402,8 @@ static void shell(void *p1, void *p2, void *p3)
 		struct console_input *cmd;
 
 		printk("%s", get_prompt());
+		str = get_prompt();
+		printf_lcd(str, lcd_dev);
 
 		cmd = k_fifo_get(&cmds_queue, K_FOREVER);
 

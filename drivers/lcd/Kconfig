@@ -1,0 +1,31 @@
+# Kconfig - LCD configuration options
+
+#
+# Copyright (c) 2015 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+menuconfig LCD
+	bool "LCD (Pulse Width Modulation) Drivers"
+	default n
+	help
+	  Enable config options for LCD drivers.
+
+if LCD
+
+source "drivers/lcd/Kconfig.pca9685"
+
+source "drivers/lcd/Kconfig.qmsi"
+
+source "drivers/lcd/Kconfig.dw"
+
+source "drivers/lcd/Kconfig.k64"
+
+source "drivers/lcd/Kconfig.stm32"
+
+source "drivers/lcd/Kconfig.nrf5_sw"
+
+source "drivers/lcd/Kconfig.ppu"
+
+endif # LCD

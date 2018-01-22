@@ -51,7 +51,7 @@
 #define SOC_MCAUSE_ECALL_EXP         RISCV_MACHINE_ECALL_EXP
 
 /* SOC-Specific EXIT ISR command */
-#define SOC_ERET                     mret
+#define SOC_ERET                     eret
 
 #ifndef _ASMLANGUAGE
 

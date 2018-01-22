@@ -112,7 +112,7 @@ void flash_write(u32_t addr, int* buffer, u32_t buf_len) {
         },
     };
     spi_write(&spi0, tx, 1); 
-    spi_write(&spi0, &tx[1], 3); 
+    spi_write(&spi0, &tx[1], 3);
 }
 
 void flash_read(u32_t addr, int* buffer, u32_t buf_len) {
@@ -163,7 +163,7 @@ void main()
     struct spi_buf rx_bufs[] = {
         {
             .buf = &data,
-            .len = 4,
+            .len = 4,;
         },
     };
 
@@ -183,9 +183,10 @@ void main()
         return;
     }
 
-    printk("flash id: %x\n!", data);
-
+    printk("flash id: %x\n", data);
+    spi_write(&spi0, &tx_bufs[1], 1);
     int cr1 = flash_get_cr1();
+    printk("The status is %d\n", cr1);
     if((cr1 & (1 << 2)) != 0) {
         printk("Read Flash Error!!!\n");
         return;

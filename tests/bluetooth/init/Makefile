@@ -1,4 +1,4 @@
-BOARD ?= qemu_x86
+#BOARD ?= qemu_x86
 CONF_FILE ?= prj.conf
 QEMU_EXTRA_FLAGS = -serial unix:/tmp/bt-server-bredr
 

@@ -67,7 +67,7 @@ static void i2c_msg_write(struct device *dev, struct i2c_msg *msg, u16_t slave_a
         i2c_get_ack(dev);
 
         for(int i = 0; i < msg->len; i++)
-        { 
+        {
             i2c->tx = buf[i];
             i2c->cmd = I2C_WRITE;
             i2c_get_ack(dev);
@@ -92,7 +92,7 @@ static void i2c_msg_read(struct device *dev, struct i2c_msg *msg, u16_t slave_ad
         if(i == (msg->len - 1)) {
             i2c->cmd = I2C_STOP_READ_NACK;
         } else {
-            i2c->cmd = I2C_READ;	
+            i2c->cmd = I2C_READ;    
         }
         i2c_get_ack(dev);
         buf[i] = i2c->rx;
@@ -162,7 +162,7 @@ static void i2c_ppu_irq_config_func_0(struct device *dev);
 #endif
 
 static const struct i2c_ppu_config i2c_ppu_cfg_0 = {
-    .i2c_base_addr = PPU_I2C_0_BASE,
+    .i2c_base_addr = PPU_I2C_1_BASE,
 
 #ifdef CONFIG_I2C_PPU_INTERRUPT
     .irq_config = i2c_ppu_irq_config_func_0,
@@ -183,10 +183,4 @@ static void i2c_ppu_irq_config_func_0(struct device *dev)
    irq_enable(PPU_I2C_0_IRQ); 
 }
 #endif
-
 //#endif /*CONFIG_I2C_1*/
-
-
-
-
-

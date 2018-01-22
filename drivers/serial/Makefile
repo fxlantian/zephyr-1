@@ -17,5 +17,6 @@ obj-$(CONFIG_UART_ALTERA_JTAG)  += uart_altera_jtag.o
 obj-$(CONFIG_UART_CC32XX)	+= uart_cc32xx.o
 obj-$(CONFIG_UART_CMSDK_APB)	+= uart_cmsdk_apb.o
 obj-$(CONFIG_UART_RISCV_QEMU)	+= uart_riscv_qemu.o
+obj-$(CONFIG_UART_PPU)	+= uart_ppu.o
 obj-$(CONFIG_UART_FE310)	+= uart_fe310.o
 obj-$(CONFIG_UART_ESP32)	+= uart_esp32.o

@@ -25,8 +25,8 @@
 typedef void (*irq_config_func_t)(struct device *dev);
 
 struct i2c_ppu_t {
-    volatile int pre;
-    volatile int ctr;
+    volatile int pre; //prescale
+    volatile int ctr; //controller
     volatile int rx;
     volatile int status;
     volatile int tx;
@@ -44,3 +44,5 @@ struct i2c_ppu_data {
 };
 
 #endif
+
+

@@ -74,4 +74,13 @@ source "drivers/crypto/Kconfig"
 
 source "drivers/display/Kconfig"
 
+source "drivers/lcd/Kconfig"
+
+source "drivers/sccb/Kconfig"
+
+source "drivers/cam/Kconfig"
+
+source "drivers/ann/Kconfig"
+
+
 endmenu

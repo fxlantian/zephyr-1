@@ -30,8 +30,8 @@ config NUM_IRQS
 
 config ITCM_BASE_ADDRESS
 	hex
-#	default	0x50000000
-	default	0x26000000
+	default	0x50000000
+#	default	0x26000000
 
 config ITCM_SIZE
 	hex
@@ -39,8 +39,8 @@ config ITCM_SIZE
 
 config DTCM_BASE_ADDRESS
 	hex
-#	default 0x51000000
-	default 0x26800000
+	default 0x51000000
+#	default 0x26800000
 
 config DTCM_SIZE
 	hex
@@ -60,6 +60,10 @@ config UART_NS16550_PORT_0
 	bool
 	default y
 
+config UART_NS16550_PORT_1
+	bool
+	default n
+
 if UART_NS16550_PORT_0
 
 config UART_NS16550_PORT_0_NAME
@@ -72,13 +76,33 @@ config UART_NS16550_PORT_0_IRQ_PRI
 
 config UART_NS16550_PORT_0_BAUD_RATE
 	int
-	default 62500
+	default 115200
 
 config UART_NS16550_PORT_0_OPTIONS
 	int
 	default 0
 
 endif # UART_NS16550_PORT_0
+
+if UART_NS16550_PORT_1
+
+config UART_NS16550_PORT_1_NAME
+	string
+	default "UART_1"
+
+config UART_NS16550_PORT_1_IRQ_PRI
+	int
+	default 0
+
+config UART_NS16550_PORT_1_BAUD_RATE
+	int
+	default 115200
+
+config UART_NS16550_PORT_1_OPTIONS
+	int
+	default 0
+
+endif # UART_NS16550_PORT_1
 
 endif # UART_NS16550
 

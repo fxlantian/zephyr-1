@@ -1,0 +1,13 @@
+config CAM_PPU
+        bool "CAM driver for PPU"
+        depends on CAM
+        default n
+        help
+          enable CAM support for PPU
+
+config CAM_PPU_INTERRUPT
+        bool "PPU CAM Interrupt Support"
+        depends on CAM_PPU
+        default n
+        help
+          Enable Interrupt Support forthe CAM Driver.

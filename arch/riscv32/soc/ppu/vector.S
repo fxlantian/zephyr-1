@@ -10,6 +10,7 @@
 GTEXT(__reset)
 GTEXT(__irq_wrapper)
 
+
 /*
  * addr 0x00000000 - 0x00000038 are not used
  * in IVT. Hence, set them to nop.

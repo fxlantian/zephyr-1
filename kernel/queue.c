@@ -188,6 +188,7 @@ void k_queue_merge_slist(struct k_queue *queue, sys_slist_t *list)
 
 void *k_queue_get(struct k_queue *queue, s32_t timeout)
 {
+
 	unsigned int key;
 	void *data;
 

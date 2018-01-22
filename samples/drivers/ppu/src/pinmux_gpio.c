@@ -7,9 +7,9 @@
 
 #define PINMUX_DRV_NAME "pinmux_0"
 #define GPIO_FUNC 1
-#define GPIO_OUT_PIN 0
-#define GPIO_INT_PIN 1
-
+#define GPIO_OUT_PIN 1
+#define GPIO_INT_PIN 2
+void waste_time(void);
 void gpio_callback(struct device *port,
 		   struct gpio_callback *cb, u32_t pins)
 {
@@ -33,13 +33,13 @@ void main(void)
     
     printk("Find %s!\n", PINMUX_DRV_NAME);
 
-    pinmux_pin_set(pinmux_dev, 2, GPIO_FUNC);
+    pinmux_pin_set(pinmux_dev, GPIO_OUT_PIN, GPIO_FUNC);
     pinmux_pin_set(pinmux_dev, 3, GPIO_FUNC);
-
+    printk("success\n");
     u32_t func0 = 0;
     u32_t func1 = 0;
     
-    pinmux_pin_get(pinmux_dev, 2, &func0);
+    pinmux_pin_get(pinmux_dev, GPIO_OUT_PIN, &func0);
     pinmux_pin_get(pinmux_dev, 3, &func1);
 
     if(func0 && func1)
@@ -65,30 +65,30 @@ void main(void)
         return;
     }
    
-    ret = gpio_pin_configure(gpio_dev, GPIO_INT_PIN, (GPIO_DIR_IN | GPIO_INT |
-                                                      GPIO_INT_EDGE | GPIO_INT_ACTIVE_HIGH));
-    if(ret)
-    {
-        printk("Error configuring gpio pin1\n");
-        return;
-    }
+    //ret = gpio_pin_configure(gpio_dev, GPIO_INT_PIN, (GPIO_DIR_IN | GPIO_INT |
+    //                                                  GPIO_INT_EDGE | GPIO_INT_ACTIVE_HIGH));
+    //if(ret)
+    //{
+    //    printk("Error configuring gpio pin1\n");
+    //    return;
+    //}
 
-    gpio_init_callback(&gpio_cb, gpio_callback, BIT(GPIO_INT_PIN));
+    //gpio_init_callback(&gpio_cb, gpio_callback, BIT(GPIO_INT_PIN));
 
-    ret = gpio_add_callback(gpio_dev, &gpio_cb);
-    if (ret) {
- 	printk("Cannot setup callback!\n");
-    }
+    //ret = gpio_add_callback(gpio_dev, &gpio_cb);
+    //if (ret) {
+ 	//printk("Cannot setup callback!\n");
+    //}
 
-    ret = gpio_pin_enable_callback(gpio_dev, GPIO_INT_PIN);
-    if (ret) {
-	printk("Error enabling callback!\n");
-    }
+    //ret = gpio_pin_enable_callback(gpio_dev, GPIO_INT_PIN);
+    //if (ret) {
+	//printk("Error enabling callback!\n");
+    //}
  
     int toggle =1;
     while(1)
     {
-        ret = gpio_pin_write(gpio_dev, 0, toggle);
+        ret = gpio_pin_write(gpio_dev, GPIO_OUT_PIN, toggle);
         if(ret)
         {
             printk("Error setting gpio\n");
@@ -96,9 +96,17 @@ void main(void)
         }
         if(toggle) toggle = 0;
         else       toggle = 1;
-//        k_sleep(MSEC_PER_SEC);
+        //k_sleep(MSEC_PER_SEC);
+        waste_time();
     }
 }
+
+void waste_time(void) {
+     volatile int i;
+     for(i = 0; i < 300000; i++);
+  //  for(i = 0; i < 300; i++) asm volatile("nop");
+ }
+
 
 
 

@@ -1,0 +1,31 @@
+# Kconfig - SCCB configuration options
+
+#
+# Copyright (c) 2015 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+menuconfig SCCB
+	bool "SCCB (Pulse Width Modulation) Drivers"
+	default n
+	help
+	  Enable config options for SCCB drivers.
+
+if SCCB
+
+source "drivers/sccb/Kconfig.pca9685"
+
+source "drivers/sccb/Kconfig.qmsi"
+
+source "drivers/sccb/Kconfig.dw"
+
+source "drivers/sccb/Kconfig.k64"
+
+source "drivers/sccb/Kconfig.stm32"
+
+source "drivers/sccb/Kconfig.nrf5_sw"
+
+source "drivers/sccb/Kconfig.ppu"
+
+endif # SCCB

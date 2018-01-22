@@ -7,19 +7,26 @@
 #include <zephyr.h>
 #include <misc/printk.h>
 #include <shell/shell.h>
-
+#include <cam.h>
+#include <spi.h>
+u16_t BACK_COLOR, POINT_COLOR;
 static int shell_cmd_ping(int argc, char *argv[])
 {
+	struct device *lcd_dev;
+    lcd_dev = device_get_binding("lcd_0");
 	ARG_UNUSED(argc);
 	ARG_UNUSED(argv);
-
 	printk("pong\n");
+	printf_lcd("pong", lcd_dev);
 
 	return 0;
 }
 
 static int shell_cmd_params(int argc, char *argv[])
 {
+	struct device *lcd_dev;
+    lcd_dev = device_get_binding("lcd_0");
+    const char *str;
 	int cnt;
 
 	printk("argc = %d\n", argc);
@@ -40,5 +47,12 @@ static struct shell_cmd commands[] = {
 
 void main(void)
 {
+	struct device *lcd_dev;
+    lcd_dev = device_get_binding("lcd_0");
+    struct device *gpio_dev;
+    gpio_dev = device_get_binding("gpio0");
+    lcd_config(lcd_dev, gpio_dev);
+    BACK_COLOR=0x000000;
+  	POINT_COLOR=0xFCFCFC;
 	SHELL_REGISTER(MY_SHELL_MODULE, commands);
 }

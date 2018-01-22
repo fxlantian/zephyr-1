@@ -1,0 +1,31 @@
+# Kconfig - CAM configuration options
+
+#
+# Copyright (c) 2015 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+menuconfig CAM
+	bool "CAM (Pulse Width Modulation) Drivers"
+	default n
+	help
+	  Enable config options for CAM drivers.
+
+if CAM
+
+source "drivers/cam/Kconfig.pca9685"
+
+source "drivers/cam/Kconfig.qmsi"
+
+source "drivers/cam/Kconfig.dw"
+
+source "drivers/cam/Kconfig.k64"
+
+source "drivers/cam/Kconfig.stm32"
+
+source "drivers/cam/Kconfig.nrf5_sw"
+
+source "drivers/cam/Kconfig.ppu"
+
+endif # CAM

@@ -1,0 +1,13 @@
+config LCD_PPU
+        bool "LCD driver for PPU"
+        depends on LCD
+        default n
+        help
+          enable LCD support for PPU
+
+config LCD_PPU_INTERRUPT
+        bool "PPU LCD Interrupt Support"
+        depends on LCD_PPU
+        default n
+        help
+          Enable Interrupt Support forthe LCD Driver.

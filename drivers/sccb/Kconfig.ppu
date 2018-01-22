@@ -1,0 +1,13 @@
+config SCCB_PPU
+        bool "SCCB driver for PPU"
+        depends on SCCB
+        default n
+        help
+          enable SCCB support for PPU
+
+config SCCB_PPU_INTERRUPT
+        bool "PPU SCCB Interrupt Support"
+        depends on SCCB_PPU
+        default n
+        help
+          Enable Interrupt Support forthe SCCB Driver.
