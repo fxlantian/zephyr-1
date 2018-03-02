@@ -1,0 +1,13 @@
+config EMMC_PPU
+        bool "EMMC driver for PPU"
+        depends on EMMC
+        default n
+        help
+          enable EMMC support for PPU
+
+config EMMC_PPU_INTERRUPT
+        bool "PPU EMMC Interrupt Support"
+        depends on EMMC_PPU
+        default n
+        help
+          Enable Interrupt Support forthe EMMC Driver.

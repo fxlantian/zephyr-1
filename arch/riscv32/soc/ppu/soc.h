@@ -87,6 +87,9 @@
 /**  ANN **/
 #define PPU_ANN_BASE          0x28002000
 
+/**  emmc controller  **/
+#define PPU_EMMC_BASE            0x28003000
+
 /* GPIO configuration */
 #define PPU_GPIO_0_BASE           0x1A101000
 #define PPU_SPI_0_BASE            0x1A102000

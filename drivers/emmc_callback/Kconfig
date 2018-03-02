@@ -1,0 +1,31 @@
+# Kconfig - EMMC_CALLBACK configuration options
+
+#
+# Copyright (c) 2015 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+menuconfig EMMC_CALLBACK
+	bool "EMMC_CALLBACK (Pulse Width Modulation) Drivers"
+	default n
+	help
+	  Enable config options for EMMC_CALLBACK drivers.
+
+if EMMC_CALLBACK
+
+source "drivers/emmc_callback/Kconfig.pca9685"
+
+source "drivers/emmc_callback/Kconfig.qmsi"
+
+source "drivers/emmc_callback/Kconfig.dw"
+
+source "drivers/emmc_callback/Kconfig.k64"
+
+source "drivers/emmc_callback/Kconfig.stm32"
+
+source "drivers/emmc_callback/Kconfig.nrf5_sw"
+
+source "drivers/emmc_callback/Kconfig.ppu"
+
+endif # EMMC_CALLBACK

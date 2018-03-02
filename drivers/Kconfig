@@ -82,5 +82,8 @@ source "drivers/cam/Kconfig"
 
 source "drivers/ann/Kconfig"
 
+source "drivers/emmc/Kconfig"
+
+source "drivers/emmc_callback/Kconfig"
 
 endmenu

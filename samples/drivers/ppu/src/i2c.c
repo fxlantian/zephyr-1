@@ -4,6 +4,7 @@
 #include <pinmux.h>
 #include <i2c.h>
 #include <misc/util.h>
+#include <emmc.h>
 
 #define I2C_FUNC 0
 
@@ -32,6 +33,8 @@ void main()
 	return;
     }
     printk("configure over\n");
+    printk("this11 is %x\n", EMMC_REG_CTRL);
+    printk("this12 is %x\n", L_EMMC_REG_CTRL);
 
 //    i2c_transfer(i2c_dev, NULL, 0, 0x00);
 //    printk("i2c transceive over\n");

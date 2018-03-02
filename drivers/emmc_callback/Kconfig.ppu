@@ -1,0 +1,13 @@
+config EMMC_CALLBACK_PPU
+        bool "EMMC_CALLBACK driver for PPU"
+        depends on EMMC_CALLBACK
+        default n
+        help
+          enable EMMC_CALLBACK support for PPU
+
+config EMMC_CALLBACK_PPU_INTERRUPT
+        bool "PPU EMMC_CALLBACK Interrupt Support"
+        depends on EMMC_CALLBACK_PPU
+        default n
+        help
+          Enable Interrupt Support forthe EMMC_CALLBACK Driver.

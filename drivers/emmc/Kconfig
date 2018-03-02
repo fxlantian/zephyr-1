@@ -1,0 +1,31 @@
+# Kconfig - EMMC configuration options
+
+#
+# Copyright (c) 2015 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+menuconfig EMMC
+	bool "EMMC (Pulse Width Modulation) Drivers"
+	default n
+	help
+	  Enable config options for EMMC drivers.
+
+if EMMC
+
+source "drivers/emmc/Kconfig.pca9685"
+
+source "drivers/emmc/Kconfig.qmsi"
+
+source "drivers/emmc/Kconfig.dw"
+
+source "drivers/emmc/Kconfig.k64"
+
+source "drivers/emmc/Kconfig.stm32"
+
+source "drivers/emmc/Kconfig.nrf5_sw"
+
+source "drivers/emmc/Kconfig.ppu"
+
+endif # EMMC

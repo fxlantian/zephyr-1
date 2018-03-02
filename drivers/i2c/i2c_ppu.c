@@ -80,9 +80,11 @@ static void i2c_msg_write(struct device *dev, struct i2c_msg *msg, u16_t slave_a
 static void i2c_msg_read(struct device *dev, struct i2c_msg *msg, u16_t slave_address)
 {
     struct i2c_ppu_t *i2c = DEV_I2C(dev);
+    struct i2c_ppu_data *data = DEV_DATA(dev);
+    printk("this1 is %x\n ", DEV_DATA(dev));
     u8_t *buf = msg->buf;
     int i = 0;
-
+    printk("this is %x\n", &(i2c->tx));
     i2c->tx = slave_address & 0xFF;
     i2c->cmd = I2C_START_WRITE;
     i2c_get_ack(dev);
@@ -162,7 +164,7 @@ static void i2c_ppu_irq_config_func_0(struct device *dev);
 #endif
 
 static const struct i2c_ppu_config i2c_ppu_cfg_0 = {
-    .i2c_base_addr = PPU_I2C_1_BASE,
+    .i2c_base_addr = PPU_I2C_0_BASE,
 
 #ifdef CONFIG_I2C_PPU_INTERRUPT
     .irq_config = i2c_ppu_irq_config_func_0,
